@@ -54,3 +54,108 @@ E . Abacus aba = (int i, j) -> ( return i * j; };
 
 CORRECT ANSWER IS B AND C.
 
+3. 
+GIVEN: 
+
+public interface Copier {
+    public default void print(String sgm){
+        System.out.println("Message from copier: " + sgm);
+    }
+}
+
+public class AbstractCopier {
+    protected void print(String load) {
+        System.out.println("Message from Abstract Copier: " + load);
+    }
+}
+
+public class TestImplementation  extends AbstractCopier implements  Copier{
+
+    public static void main(String[] args){
+        TestImplementation test  = new TestImplementation();
+        test.print("Attempt000000");
+    }
+}
+
+What is the output?
+A . A compilaon error is thrown.
+B . Message from Copier: Attempt000000
+C . Message from Abstract Copier: Attempt000000
+D . A runme error is thrown.
+
+CORRECT ANSWER IS A.
+
+
+4. 
+GIVEN: 
+
+public interface Copier {
+    public default void print(String sgm){
+        System.out.println("Message from copier: " + sgm);
+    }
+}
+
+public class AbstractCopier {
+    protected void print(String load) {
+        System.out.println("Message from Abstract Copier: " + load);
+    }
+}
+
+public class TestImplementation  extends AbstractCopier implements  Copier{
+
+ @Override
+    public void print(String sgm) {
+        AbstractCopier.super.print(sgm);
+    }
+
+    public static void main(String[] args){
+        TestImplementation test  = new TestImplementation();
+        test.print("Attempt000000");
+    }
+}
+
+What is the output?
+A . A compilaon error is thrown.
+B . Message from Copier: Attempt000000
+C . Message from Abstract Copier: Attempt000000
+D . A runme error is thrown.
+
+CORRECT ANSWER IS A.
+
+5. 
+GIVEN: 
+
+public interface Copier {
+    public default void print(String sgm){
+        System.out.println("Message from copier: " + sgm);
+    }
+}
+
+public class AbstractCopier {
+    protected void print(String load) {
+        System.out.println("Message from Abstract Copier: " + load);
+    }
+}
+
+public class TestImplementation  extends AbstractCopier implements  Copier{
+
+ @Override
+    public void print(String sgm) {
+        Copier.super.print(sgm);
+    }
+
+    public static void main(String[] args){
+        TestImplementation test  = new TestImplementation();
+        test.print("Attempt000000");
+    }
+}
+
+What is the output?
+A . A compilaon error is thrown.
+B . Message from Copier: Attempt000000
+C . Message from Abstract Copier: Attempt000000
+D . A runme error is thrown.
+
+CORRECT ANSWER IS B.
+
+
