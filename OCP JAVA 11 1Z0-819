@@ -30,7 +30,6 @@ D. IntStream.range(1, 100).mapToObj(FizzBuzz::convert).forEach(System.out::print
 
 CORRECT ANSWER IS D.
 
-
 2.
 
 interface Abacus {
@@ -48,8 +47,10 @@ public class Main {
 
 Which two codes, independently, can be inserted in LINE 1 compile?
 A . Abacus aba = (int m, int n) -> { m * n };
-B . Abacus aba = (int e, int f) -> { return e * f; }; //CORRECT.
-C . Abacus aba = (a, b) -> a * b; // CORRECT.
+B . Abacus aba = (int e, int f) -> { return e * f; };
+C . Abacus aba = (a, b) -> a * b;
 D . Abacus aba = v, w -> x * y;
 E . Abacus aba = (int i, j) -> ( return i * j; };
+
+CORRECT ANSWER IS B AND C.
 
