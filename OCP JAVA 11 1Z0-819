@@ -15,7 +15,7 @@ public class FizzBuzz {
     }
 
     public static void main(String[] args) {
-       for (int i = 0; i < 101; i++) {
+       for (int i = 1; i < 101; i++) {
          System.out.println(convert(i));
        }
     }
@@ -29,4 +29,27 @@ C. intstream.rangeclosed(l, 100).mapToObj{FizzBuzz::convert).forEach(System.out:
 D. IntStream.range(1, 100).mapToObj(FizzBuzz::convert).forEach(System.out::println); 
 
 CORRECT ANSWER IS D.
+
+
+2.
+
+interface Abacus {
+    public int calc(int a, int b);
+}
+
+public class Main {
+    public static void main(String[] args){
+        int result = 0;
+// LINE 1
+        result = aba.calc(10,20);
+        System.out.println(result);
+    }
+}
+
+Which two codes, independently, can be inserted in LINE 1 compile?
+A . Abacus aba = (int m, int n) -> { m * n };
+B . Abacus aba = (int e, int f) -> { return e * f; }; //CORRECT.
+C . Abacus aba = (a, b) -> a * b; // CORRECT.
+D . Abacus aba = v, w -> x * y;
+E . Abacus aba = (int i, j) -> ( return i * j; };
 
