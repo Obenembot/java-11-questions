@@ -217,3 +217,83 @@ private boolean isValidPort(String portNumber) {
 }
 
 
+7. 
+
+        Integer[] ints = {1,2,3,4,5,6,7};
+        var list = Arrays.asList (ints);
+        UnaryOperator<Integer> uo =  x -> x *  3; // line 11
+        list.replaceAll (uo);
+
+Which can replace line 11?
+A . UnaryOperator<Interger > uo = (var x ) -> (x * 3);
+B . UnaryOperator<Interger >uo = var x -> { return x 3 ; };
+C . UnaryOperator<Interger >uo = x -> { return x * 3; };
+D . UnaryOperator<Interger >uo = (int x) -> x * 3;
+
+CORRECT ANSWER IS A AND C.
+
+8.
+
+GIVEN:
+
+@interface JsonField {
+    enum Type {
+        INT, STRING, BOOLEAN
+    }
+    String name() default "";
+    Type type();
+}
+
+What is the correct definion of the JsonField annotaon that makes the Point class compile?
+
+A. 
+@Target(ElementType.FIELD)
+public class Point {
+    @JsonField(type = JsonField.Type.STRING)
+    private String _name;
+
+    @JsonField(type = JsonField.Type.INT)
+    private int x;
+
+    @JsonField(type = JsonField.Type.INT)
+    private int y;
+}
+
+B.
+@Target(ElementType.FIELD)
+@interface JsonField {
+    enum Type {
+        INT, STRING, BOOLEAN
+    }
+
+    String name() ;
+
+    Type type();
+}
+
+C.
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+@interface JsonField1 {
+    enum Type {
+        INT, STRING, BOOLEAN
+    }
+
+    String name() default "";
+
+    Type type();
+}
+
+D.
+@Retention(RetentionPolicy.CLASS)
+@interface JsonField1 {
+    enum Type {
+        INT, STRING, BOOLEAN
+    }
+
+    String name() default "";
+
+    Type type();
+}
+
+
