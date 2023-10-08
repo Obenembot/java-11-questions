@@ -340,3 +340,66 @@ C . boolean attributes = Files.readAributes(path, BasicFileAributes.class).isDir
 D . boolean attributes = Files.readAributes(path, FileAributes.class).isDirectory();
 
 CORRECT ANSWER IS A AND C.
+
+11.
+Given the code fragment:
+public class Main {
+    class L extends Exception {
+    }
+
+    class M extends L {
+    }
+
+    class N extends RuntimeException {
+    }
+
+    public void p() throws L {
+        throw new M();
+    }
+
+    public void q() throws N {
+        throw new N();
+    }
+
+    public static void main(String[] args) {
+
+        try {
+            Main main = new Main();
+            main.p();
+            main.q();
+        } // Line 1
+    }
+}
+What change on line 1 will make this code compile?
+
+A . Add catch (L |N e).
+B . Add catch (L |M N e).
+C . Add catch (L e).
+D . Add catch (N | L | M e).
+E . Add catch (M |L e).
+
+CORRECT ANSWER IS A AND C.
+
+12.
+Given the code fragment:
+
+    public static void main(String[] args) {
+        char arrays[] [] = {{'g', 'j'},{'h', 'k'}, {'i', 'l'}};
+        for (char[] xx : arrays) {
+            for (char yy : xx) {
+                System.out.print(yy);
+            }
+            System.out.print(" ");
+        }
+    }
+
+What is the result?
+
+A . An ArrayIndexOutofBoundsExcepon is thrown at runme.
+B . The compilaon fails.
+C . gh ij kl
+D . gj hk il
+E . ghi jkl
+
+CORRECT ANSWER IS D.
+
