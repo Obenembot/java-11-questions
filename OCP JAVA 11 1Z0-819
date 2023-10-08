@@ -403,3 +403,55 @@ E . ghi jkl
 
 CORRECT ANSWER IS D.
 
+13.
+Given:
+
+public  interface AdaptorFirst {
+    void showFirst();
+}
+
+Which three classes successfully override showFirst ()?
+
+A. 
+public abstract class Adaptor implements AdaptorFirst {
+    public  String showFirst() {
+        return "First";
+    }
+}
+
+B.
+public abstract class Adaptor implements AdaptorFirst {
+    public void showFirst() {
+        System.out.println("First");
+    }
+}
+
+C.
+public  class Adaptor implements AdaptorFirst {
+    public void showFirst() ;
+}
+
+D.
+public  class Adaptor implements AdaptorFirst {
+    private void showFirst() {
+        System.out.println("First");
+    }
+}
+
+E.
+public abstract class Adaptor implements AdaptorFirst {
+    public abstract void showFirst() ;
+}
+
+F.
+public  class Adaptor implements AdaptorFirst {
+    public void showFirst() {
+        System.out.println("First");
+    }
+}
+
+CORRECT ANSWER IS B AND E AND F.
+
+14.
+
+
