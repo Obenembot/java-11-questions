@@ -272,8 +272,7 @@ B.
 }
 
 C.
-@Target(ElementType.METHOD)
-@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.FIELD)
 @interface JsonField1 {
     enum Type {
         INT, STRING, BOOLEAN
@@ -296,4 +295,48 @@ D.
     Type type();
 }
 
+CORRECT ANSWER IS A.
 
+9.
+Given the code fragment:
+
+    public static void main(String[] args) {
+        try {
+            Path path = Paths.get("src/annotations");
+//line 1
+            System.out.println(attributes.isDirectory());
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+You want to examine whether path is a directory.
+Which code inserted on line 1 will accomplish this?
+
+A . BasicFileAttributes attributes = Files.isDirectory(path);
+B . BasicFileAttributes attributes =Files.getAribute (path, ''insdirectory'');
+C . BasicFileAttributes attributes = Files.readAributes(path, BasicFileAributes.class);
+D . BasicFileAttributes attributes = Files.readAributes(path, FileAributes.class);
+
+CORRECT ANSWER IS C.
+
+10.
+Given the code fragment:
+
+    public static void main(String[] args) {
+        try {
+            Path path = Paths.get("src/annotations");
+//line 1
+            System.out.println(attributes);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+You want to examine whether path is a directory.
+Which code inserted on line 1 will accomplish this?
+
+A . boolean attributes = Files.isDirectory(path);
+B . boolean attributes =Files.getAribute (path, ''insdirectory'').isDirectory();
+C . boolean attributes = Files.readAributes(path, BasicFileAributes.class).isDirectory();
+D . boolean attributes = Files.readAributes(path, FileAributes.class).isDirectory();
+
+CORRECT ANSWER IS A AND C.
