@@ -159,3 +159,61 @@ D . A runme error is thrown.
 CORRECT ANSWER IS B.
 
 
+6.
+Your organizaon makes mlib.jar available to your cloud customers. While working on a code cleanup
+project for mlib.jar, you see this method by customers
+
+public class Main{
+   private Socket transportSocket;
+
+    public void enableService(String hostName, String portNumber) throws IOException {
+        this.transportSocket = new Socket(hostName, Integer.parseInt(portNumber));
+
+        transportSocket.close();
+    }
+}
+
+What security measures should be added to this method so that it meets the requirements for a
+customer accessible method?
+
+A.   Insert this code before the call to new Socket
+        hostName = new String(hostName);
+        portNumber = new String(portNumber);
+
+B . Create a method that validates the hostName and portNumber parameters before opening the
+socket.
+C . Make enableService private.
+D . Enclose the call to new Socket In an AccessController.doPrivileged block.
+
+CORRECT ANSWER IS D. 
+MAKE SURE SOCKET ARE CLOSED.
+public void enableService(String hostName, String portNumber) throws IOException {
+    // Input validation
+    if (!isValidHostName(hostName) || !isValidPort(portNumber)) {
+        throw new IllegalArgumentException("Invalid hostName or portNumber");
+    }
+
+    // Create a socket and handle exceptions
+    try (Socket socket = new Socket(hostName, Integer.parseInt(portNumber))) {
+        // Do something with the socket if needed
+        this.transportSocket = socket;
+    } catch (IOException e) {
+        // Properly handle exceptions (log, rethrow, or handle as needed)
+        throw e;
+    }
+}
+
+// Example of input validation methods
+private boolean isValidHostName(String hostName) {
+    // Implement hostName validation logic
+    // Return true if it's valid, false otherwise
+    return true; // Replace with your validation code
+}
+
+private boolean isValidPort(String portNumber) {
+    // Implement portNumber validation logic
+    // Return true if it's valid, false otherwise
+    return true; // Replace with your validation code
+}
+
+
