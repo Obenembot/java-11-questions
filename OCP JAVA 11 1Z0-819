@@ -453,5 +453,78 @@ public  class Adaptor implements AdaptorFirst {
 CORRECT ANSWER IS B AND E AND F.
 
 14.
+GIVEN:
 
+public class Main {
+    enum Machine {
+        AUTO("Vehicle"), MEDICAL("Scanner");
+        private String type;
 
+        private Machine(String type) {
+            this.type = type; // line 1
+        }
+
+        private void setType(String type) {
+            this.type = type; // line 2
+        }
+
+        private String getType() {
+            return type;
+        }
+    }
+
+        public static void main(String[] args) {
+            Machine.AUTO.setType("Toyota"); // line 3
+            for (Machine machine : Machine.values()) {
+                System.out.println(machine +": " + machine.getType());
+            }
+        }
+}
+
+A. An exception is thrown at runtime.
+B.  AUTO: Toyota
+    MEDICAL: Scanner
+C. The compilaon fails due to an error on line 2.
+D. The compilaon fails due to an error on line 1.
+E. The compilaon fails due to an error on line 3
+F. AUTO: Vehicle
+   MEDICAL: Scanner
+
+CORRECT ANSWER IS A.
+
+15.
+GIVEN: 
+
+public class Main {
+    enum Machine {
+        AUTO("Vehicle"), MEDICAL("Scanner"); // line 1
+        private String type;
+
+        private void setType(String type) {
+            this.type = type; // line 1
+        }
+
+        private String getType() {
+            return type;
+        }
+    }
+
+        public static void main(String[] args) {
+            Machine.AUTO.setType("Toyota"); // line 1
+            for (Machine machine : Machine.values()) {
+                System.out.println(machine +": " + machine.getType());
+            }
+        }
+}
+What is the outcome? 
+
+A. An exception is thrown at runtime.
+B.  AUTO: Toyota
+    MEDICAL: Scanner
+C. The compilaon fails due to an error on line 2.
+D. The compilaon fails due to an error on line 1.
+E. The compilaon fails due to an error on line 3
+F. AUTO: Vehicle
+   MEDICAL: Scanner
+
+CORRECT ANSWER IS D.
