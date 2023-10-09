@@ -658,4 +658,47 @@ E . {S=Getting,P=To, Q=Be, R=Real}
 CORRECT ANSWER IS A.
 
 20.
+GIVEN:
+public class Main {
+    public static void main(String[] args) {
+        Consumer<String> c1 = arg -> System.out.println(arg);
+        c1.accept("c1 Accepted");
+        Consumer<String> c2 = arg -> System.out.println(arg);
+        c2.accept("c2 Accepted");
+        c2.andThen(c1).accept("c2 after");
+        c2.accept("c2 Accepted Again");
+    }
+}
+
+What is the result?
+A. 
+c1 Accepted
+c2 Accepted
+c2 after
+c2 after
+c2 Accepted Again
+
+B.
+c1 Accepted
+c2 after
+c2 Accepted Again
+
+C.
+c1 Accepted
+c2 Accepted
+c2 Accepted Again
+
+D.
+c2 Accepted
+c2 after
+c2 after
+c2 Accepted Again
+
+E.
+c1 Accepted
+c2 after
+c2 after
+c2 Accepted Again
+
+CORRECT ANSWER IS A.
 
