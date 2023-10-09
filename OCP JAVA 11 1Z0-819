@@ -567,5 +567,95 @@ F . break a ;
 CORRECT ANSWER IS C AND E.
 
 17.
+GIVEN: 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+public class Main {
+    static Map<String, String> map = new HashMap<>();
+    static List<String> keys = new ArrayList<>(List.of("S", "P", "Q", "R"));
+    static String[] values = {"Getting", "To", "Be", "Real"};
+    static {
+        for (var i = 0; i < keys.size(); i++) {
+            map.put(keys.get(i), values[i]);
+        }
+    }
+    public static void main(String[] args) {
+        keys.clear();
+        values = new String[0];
+        System.out.println("Keys: " + keys.size() + " Values: " + values.length+
+        " Map: " + map.size());
+    }
+}
+
+What is the result?
+A . Keys: 4 Values: 4 Map: 0
+B . Keys: 4 Values: 4 Map: 4
+C . The compilaon fails.
+D . Keys: 0 Values: 0 Map: 2
+E . Keys: 0 Values: 0 Map: 0
+F . Keys: 0 Values: 0 Map: 4
+
+CORRECT ANSWER IS F.
+
+18.
+GIVEN: 
+public class Main {
+    static Map<String, String> map = new HashMap<>();
+    static List<String> keys = new ArrayList<>(List.of("S", "P", "Q", "R", "S"));
+    static String[] values = {"Getting", "To", "Be", "Real"};
+    static {
+        for (var i = 0; i < keys.size(); i++) {
+            map.put(keys.get(i), values[i]);
+        }
+    }
+    public static void main(String[] args) {
+        keys.clear();
+        values = new String[0];
+        System.out.println("Keys: " + keys.size() + " Values: " + values.length+
+        " Map: " + map.size());
+    }
+}
+What is the result?
+A . Keys: 4 Values: 4 Map: 0
+B . Keys: 4 Values: 4 Map: 4
+C . The compilation fails.
+D . Exception at runtime
+E . Keys: 0 Values: 0 Map: 0
+F . Keys: 0 Values: 0 Map: 4
+
+CORRECT ANSWER IS D.
+
+19.
+GIVEN: 
+public class Main {
+    static Map<String, String> map = new TreeMap<>();
+    static List<String> keys = new ArrayList<>(List.of("S", "P", "Q", "R", "S"));
+    static String[] values = {"Getting", "To", "Be", "Real", "NOW"};
+    static {
+        for (var i = 0; i < keys.size(); i++) {
+            map.put(keys.get(i), values[i]);
+        }
+    }
+    public static void main(String[] args) {
+        keys.clear();
+        values = new String[0];
+        System.out.println("Keys: " + keys.size() + " Values: " + values.length+
+        " Map: " + map.size());
+        System.out.println(map);
+    }
+}
+
+What is the result?
+A . {P=To, Q=Be, R=Real, S=NOW}
+B . Keys: 4 Values: 4 Map: 4
+C . The compilation fails.
+D . Exception at runtime
+E . {S=Getting,P=To, Q=Be, R=Real}
+
+CORRECT ANSWER IS A.
+
+20.
 
