@@ -835,3 +835,56 @@ E . if (items.stream().anyMatch(i -> i.count < 0 )) {
 
 THE CORRECT ANSWER IS E.
 
+26.
+GIVEN:
+public class ConSuper {
+    protected ConSuper() {
+        this(2);
+        System.out.println("3");
+    }
+
+    protected ConSuper(int a) {
+        System.out.println(a);
+    }
+}
+
+public class ConSub extends ConSuper {
+    ConSub() {
+        this(4);
+        System.out.println("1");
+    }
+    ConSub(int a) {
+        System.out.println(a);
+    }
+    public static void main(String[] args) {
+        new ConSub(4);
+    }
+}
+
+What is the result?
+A . 2134
+B . 234
+C . 2341
+D . 214
+THE CORRECT ANSWER IS B.
+
+27.
+GIVEN:
+public class Main {
+    public static void main(String[] args) {
+        int i = 0;
+        for (; i < 10; i++) {
+            System.out.print(++i + " ");
+        }
+    }
+}
+What is the result?
+A . 1 3 5 7 9
+B . 1 3 5 7 9 11
+C . 2 4 6 B 10
+D . 2 4 6 8
+
+THE CORRECT ANSWER IS A.
+
+
+
