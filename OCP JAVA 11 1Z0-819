@@ -1,5 +1,4 @@
 1.
-
 public class FizzBuzz {
 
     public static String convert(int x) {
@@ -31,7 +30,6 @@ D. IntStream.range(1, 100).mapToObj(FizzBuzz::convert).forEach(System.out::print
 CORRECT ANSWER IS D.
 
 2.
-
 interface Abacus {
     public int calc(int a, int b);
 }
@@ -218,7 +216,6 @@ private boolean isValidPort(String portNumber) {
 
 
 7. 
-
         Integer[] ints = {1,2,3,4,5,6,7};
         var list = Arrays.asList (ints);
         UnaryOperator<Integer> uo =  x -> x *  3; // line 11
@@ -405,7 +402,6 @@ CORRECT ANSWER IS D.
 
 13.
 Given:
-
 public  interface AdaptorFirst {
     void showFirst();
 }
@@ -454,7 +450,6 @@ CORRECT ANSWER IS B AND E AND F.
 
 14.
 GIVEN:
-
 public class Main {
     enum Machine {
         AUTO("Vehicle"), MEDICAL("Scanner");
@@ -494,7 +489,6 @@ CORRECT ANSWER IS A.
 
 15.
 GIVEN: 
-
 public class Main {
     enum Machine {
         AUTO("Vehicle"), MEDICAL("Scanner"); // line 1
@@ -531,7 +525,6 @@ CORRECT ANSWER IS D.
 
 16.
 GIVEN: 
-
 public class Main {
 
     public static void main(String[] args) {
@@ -557,7 +550,7 @@ public class Main {
 }
 
 Which two statements inserted independently at line 1 enable this code to print PRRT?
-A . i---;
+A . i--;
 B . connue b;
 C . break b;
 D . j--;
@@ -702,3 +695,41 @@ c2 Accepted Again
 
 CORRECT ANSWER IS A.
 
+21:
+GIVEN:
+
+public class Main {
+    public static void main(String[] args) {
+        String[] towns = {"boston", "paris", "bangkok", "oman"};
+        Comparator<String> ms = (a, b) -> b.compareTo(a);
+        Arrays.sort(towns, ms);
+        int oman = Arrays.binarySearch(towns, "oman", ms);
+        System.out.println(oman);
+    }
+}
+
+What is the result?
+A . 2
+B . -1
+C . 1
+D . -3
+
+THE CORRECT ANSWER IS C. // NOT IF WHAT WE LOOKING FOR IS FOUND THEN IT RETURNS THE INDEX OF THAT ELEMENT.
+
+22.
+GIVEN:
+public class Main {
+    public static void main(String[] args) {
+        String[] towns = {"boston", "paris", "bangkok", "oman"};
+        Comparator<String> ms = (a, b) -> b.compareTo(a);
+        int oman = Arrays.binarySearch(towns, "oman", ms);
+        System.out.println(oman);
+    }
+}
+
+What is the result?
+A . 2
+B . -1
+C . 1
+D . -3
+THE CORRECT ANSWER IS D. // NOT BECAUSE WE DID NOT SORT, RETURNS THE INDEX BUT WITH A NEGATIVE.
