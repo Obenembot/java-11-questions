@@ -733,3 +733,105 @@ B . -1
 C . 1
 D . -3
 THE CORRECT ANSWER IS D. // NOT BECAUSE WE DID NOT SORT, RETURNS THE INDEX BUT WITH A NEGATIVE.
+
+23.
+GIVEN:
+class Plant {
+}
+
+class Tulip extends Plant {
+}
+
+public class Garden {
+    private static Plant plant;
+
+    public static void main(String[] args) {
+        plant = new Tulip();
+        feed(plant);
+        feed(plant);
+    }
+
+    public static void feed(Plant p) {
+        if (p instanceof Tulip) {
+            System.out.print(" Be careful ");
+        }
+        p = null;
+    }
+}
+
+What is the result?
+A . Be careful
+B . The program prints nothing.
+C . Be careful Be careful
+D . An exception is thrown at runtime
+
+THE CORRECT ANSWER IS C.
+
+24.
+GIVEN:
+class Plant {
+}
+
+class Tulip extends Plant {
+}
+
+public class Garden {
+    private static Plant plant;
+
+    public static void main(String[] args) {
+        plant = new Tulip();
+        feed(plant);
+        feed(plant);
+    }
+
+    public static void feed(Plant p) {
+        if (p instanceof Tulip) {
+            System.out.print(" Be careful ");
+        }
+        plant = null;
+    }
+}
+
+What is the result?
+A . Be careful
+B . The program prints nothing.
+C . Be careful Be careful
+D . An exception is thrown at runtime
+
+THE CORRECT ANSWER IS A.
+
+25.
+GIVEN:
+class Item {
+    public String name;
+    public int count;
+
+    public Item(String name, int count) {
+        this.name = name;
+        this.count = count;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        var items = List.of(new Item("A", 15),
+                new Item("B", 3),
+                new Item("C", 12),
+                new Item("D", 6));
+
+// line 1
+        System.out.println("Item for where count less than zero");
+    }
+}
+}
+
+You want to examine the items list it contains an item for which the variable count is below zero.
+Which code fragment in line 1 accomplishes this?
+A . if (items.stream() .filter(i -> i.count < 0).findFirst ()) {
+B . if (items.stream () .filter (i -> i.count < 0) . findAny () ) {
+C . if (items.stream () .allmatch (i -> count < 0) < 0) ) {
+D . if (items.stream () .anymatch (i -> count < 0) < 0) ) {
+E . if (items.stream().anyMatch(i -> i.count < 0 )) {
+
+THE CORRECT ANSWER IS E.
+
