@@ -1069,4 +1069,144 @@ D . HH
 
 THE CORRECT ANSWER IS D.
 
+34.
+Given the code fragment:
+    public static void main(String... args) {
+            List<String> list1 = new ArrayList<>(
+                    List.of("Plane",  "Automobile", "Motorcycle"));
+            List<String> list2 = new ArrayList<>(List.copyOf(list1));
+            list1.sort((String item1, String item2) -> item1.compareTo(item2));
+            list2.sort((String item1, String item2) -> item1.compareTo(item2));
+            System.out.println(list1.equals(list2));
+    }
+
+What is the result?
+A . A java.lang, UnsupportedOperaonExcepon is thrown.
+B . True
+C . False
+D . A java.lang.NullPointerExcepon is thrown
+
+THE CORRECT ANSWER IS A.
+
+35.
+Given the code fragment:
+    public static void main(String... args) {
+            List<String> list1 = new ArrayList<>(
+                    List.of("Plane",  "Automobile", "Motorcycle"));
+            List<String> list2 = new ArrayList<>(List.copyOf(list1));
+            System.out.println(list1.equals(list2));
+    }
+
+What is the result?
+A . A java.lang, UnsupportedOperaonExcepon is thrown.
+B . True
+C . False
+D . A java.lang.NullPointerExcepon is thrown
+
+THE CORRECT ANSWER IS A.
+
+36.
+Given the content:
+MessagesBundle.properties file:
+Username = Username
+Password = Password
+And 
+MessagesBundle_fr_FR.properties file:
+Username = utilisateur
+password = Le passe
+And 
+MessagesBundle_ru.properties file
+Username = Mark
+Password = Tyson
+And the code fragment:
+public class Test{
+public static void main(String[] args){
+Locale.setDefault(Locale.FRANCE);
+ResourceBundle msg = ResourceBundle.getBundle(“MessageBundle”, new Locale(“ru”));
+System.out.println(“User ”+ msg.getString(“username”));
+System.out.println(“Pass ”+ msg.getString(“password”));
+    }
+}
+What is the result?
+A). User = Mark
+      Pass = Tyson
+B). The compilation fails.
+C). A missingResourceException is thrown at runtime.
+D). User = Utilisateur
+       Pass = Le Passe
+E). User Username
+
+THE CORRECT ANSWER IS C.
+
+37.
+Given Triple This =.java:
+6. import java.util.function.*;
+7. public TripleThis{
+public static void main(String[] args){
+  Function tripler = x -> { return (Integer) x * 3; };
+TripleThis.printValue(tripler, 4);
+}
+public static <T> void printValue(Function f, T num){
+System.out.println(f.apply(num));
+}  }
+Compiling TripleThis.java gives this compiler warning:
+Note: TripleTHis.java uses unchecked or unsafe operations.
+Which two replacements done together remove this compiler warning?
+A . Replace line 9 with function<Integer> triple = x->-{return (Integer)x*3;}.
+B. Replace line 12 with public static void printValue function<Integer> f, int num){.
+C. Replace line 12 with public static int printValue function<Integer, Integer>, f, T num{.
+D. Replace line 12 with public static <T> void privateValue(Function<T, T>f, T num){,
+E. Replace line 9 with function<Integer>, Integer> = X -> {return (integer)x * 3; }.
+
+THE CORRECT ANSWER IS D AND E.
+
+38.
+Given
+public class Employee{
+private String name;
+private String neighborhood;
+private LocalDate birthday;
+private int salary;
+} 
+And 
+List<Employee> roster = new ArrayList<>(…);
+Map<String, Optional<Employee>> m = roster.stream()
+  // Line 1
+Which code fragment on line 1 makes the m map contain the employee with the highest salary for each neighborhood?
+A).
+.collect(Collectors.maxBy(Employee::getSalary, Collectors.groupingBy(Comparator.comparing(e -> e.getNeighborhood()))));
+B).
+.collect(Collectors.groupingBy(Employee::getNeighborhood, Collectors.maxBy(Comparator.comparing(Employee::getSalary))));
+C). 
+.collect(Collectors.groupingBy(e -> e.getNeighborhood(), Collectors.maxBy((x, y) -> y.getSalary() – x.getSalary() )));
+D).
+Collect(Collectors.maxBy(x, y) -> y.getSalary() – x.getSalary(),  Collectors.groupingBy(Employee::getNeighborhood)));
+
+THE CORRECT ANSWER IS B. WATCH OUT FOR C AS WELL IF THE Y AND X AND INTERCHANGED.
+
+39.
+Given:
+public class Main{ 
+public static void main(String[] args){
+List l = new ArrayList();
+l.add(“hello”);
+l.add(“world”);
+print(1);
+}
+private static void print(List<String>… args){
+for(List<String> str : args){
+System.out.println(str);
+       }
+    } 
+}
+
+Which annotation should be used to removed warnings from complication?
+	A.	@SuppressWarnings on the main and print methods
+	B•	 @SuppressWarnings(''unchecked'') on main and @SafeVarargs on the print method
+	C•	 @SuppressWarnings(''rawtypes'') on main and @SafeVarargs on the print method
+	d•	 @SuppressWarnings(''all'') on the main and print methods
+
+THE CORRECT ANSWER IS B.
+
+
 
