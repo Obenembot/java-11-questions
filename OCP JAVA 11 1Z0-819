@@ -909,4 +909,164 @@ E . Replace line 1 with    int sum = numbers.parallelStream().reduce(0, (n, m) -
 THE CORRECT ANSWER IS D AND E.
 
 29.
+ Which method throws an exception for not-a-number and infinite input values?
+A). static float validation1 (String s) throws IllegalArgumentException {
+return Float.parseFloat(s);
+}
+B). static float validation2 (String s, float min, float max) throws IllegalArgumentException {
+Float f = Float. parseFloat(s);
+}
+C).  static float validation2 (String s, float min, float max) throws IllegalArgumentException {
+float f = Float. parseFloat(s);
+if(!Float.isFinite(f) || f > max){
+throw new IllegalArgumentException();
+}
+Return f;
+}
+D).static float validation2 (String s, float min, float max) throws IllegalArgumentException{
+Float f = Float. parseFloat(s);
+if(Float.isFinite(f)  && f < min &&  f > max){
+throw new IllegalArgumentException();
+}
+return f;
+}
+
+A . Option A
+B. Option B
+C. Option C
+D. Option D
+THE CORRECT ANSWER IS A.
+
+30).
+Given: 
+public class Main{
+private String[] strings =  {“ABCDEFGHIJKLMNOPQRSTUVWXYZ”,
+“abcdefghijklmnopqrstuvwxyz”, “0123456789”};
+public void write(String filename){
+// line 1
+for (String str: strings){
+ByteBuffer buffer = ByteBuffer.wrap(str.getBytes());
+fileChannel.write(buffer);
+}
+}catch(IOException e){
+e.printStackTrace();
+}
+}
+public static void main(String[] args){
+Main test = new Main();
+Test.write(“file_to_path”);
+}
+}
+
+You want to obtain the Filechannel object on line 1.
+ Which code fragment will accomplish this?
+A). try (FileChannel fineChannel = Channels.newChannel (new FileOutputStream(filename)); ){
+}
+B). try (FileChannel fineChannel =  new FileOutputStream(filename).getChannel()){
+}
+C). try(FileChannel fileChannel = new FileOutputStream(new FileChannel(filename)); ){
+}
+D). try(FileChannel fileChannel = new FileChannel (new FileoutputStream(filename)); ){
+}
+
+THE CORRECT ANSWER IS B.
+
+31).  Given the code fragment:
+8.          public class Test{
+9.          private final int x = 1;
+10.         static final int y;
+11.          public Test() {
+12.            System.out.print(x);
+13.             System.out.print(y);
+14.          } 
+15.       public static void main(String[] args){
+16.        new Test();
+17.    }
+18.}
+
+What is the result?
+A . 1
+B . The compilation fails at line 
+C. 10
+D. The compilation fails at line 10.
+E. The compilation fails at line 13.
+
+THE CORRECT ANSWER IS D.
+
+32.
+GIVEN: 
+final class X {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String toString() {
+        return getName();
+    }
+}
+
+class Y extends X {
+    public Y(String name) {
+        super();
+        setName(name);
+    }
+
+    public static void main(String... args) {
+        Y y = new Y("HH");
+        System.out.println(y);
+    }
+}
+
+What is the result?
+A . The compilaon fails.
+B . Y@<< hashcode>>
+C . Null
+D . HH
+
+THE CORRECT ANSWER IS A. // CAN NOT INHERIT FROM FINAL CLASS
+
+33.
+GIVEN: 
+class X {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String toString() {
+        return getName();
+    }
+}
+
+class Y extends X {
+    public Y(String name) {
+        super();
+        setName(name);
+    }
+
+    public static void main(String... args) {
+        Y y = new Y("HH");
+        System.out.println(y);
+    }
+}
+
+What is the result?
+A . The compilaon fails.
+B . Y@<< hashcode>>
+C . Null
+D . HH
+
+THE CORRECT ANSWER IS D.
+
 
