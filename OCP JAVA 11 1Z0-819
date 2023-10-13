@@ -887,4 +887,26 @@ D . 2 4 6 8
 THE CORRECT ANSWER IS A.
 
 
+28.
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = List.of(2,3,4);
+        int sum = numbers.stream().reduce(0, (n, m) -> n + m);
+        System.out.println(sum);
+    }
+}
+
+What is the result?
+
+You want to make the reduction operaon parallelized.
+Which two modifications will accomplish this?
+A . Replace line 1 with int sum = numbers. Stream (). Interate (0, a -> a+1. Reduce (0, (n m) -> n+m);
+B . Replace line 1 with int sum = numbers. ParallelStream ( ). Reduce (0, (n, m ) -> n + m);
+C . Replace line 1  with int sum = numbers. Parallel ( ). Stream ( ). Reduce (0, (n, m ) -> n + m);
+D . Replace line 1 with int sum = numbers.stream().parallel().reduce(0, (n, m) -> n + m);
+E . Replace line 1 with    int sum = numbers.parallelStream().reduce(0, (n, m) -> n + m);;
+
+THE CORRECT ANSWER IS D AND E.
+
+29.
 
