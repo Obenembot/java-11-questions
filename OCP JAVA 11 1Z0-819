@@ -1288,3 +1288,28 @@ D . String toString() { return ''200''; }
 
 
 THE CORRECT ANSWER IS B.
+
+44.
+Which two statements independently compile? (Choose two.)
+
+A. List<? super Short> list1 = new ArrayList<Number>();
+B. List<? extends Number> list3 = new ArrayList<Byte>();
+C. List<? super Number> list2 = new ArrayList<Integer>();
+D. List<? extends Number> list4 = new ArrayList<Object>();
+E. List<? super Float> list5 = new ArrayList<Double>();
+
+THE CORRECT ANSWER IS A AND B.
+
+45.
+Given:
+LocalDate d1 = LocalDate.of(1997,2,7);
+DateTimeFormaer d =
+DateTimeFormaer.ofPaern( /*insert code here*/ );
+System.out.println(d.format (d1));
+Which paern formats the date as Friday 7th of February 1997?
+A . ''eeee dd+''th of''+ MMM yyyy''
+B . ''eeee dd'th of' MMM yyyy''
+C . ''eeee d+''th of''+ MMMM yyyy''
+D . ''eeee d'th of' MMMM yyyy''
+
+THE CORRECT ANSWER IS D.
