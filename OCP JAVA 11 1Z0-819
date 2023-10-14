@@ -1209,4 +1209,82 @@ Which annotation should be used to removed warnings from complication?
 THE CORRECT ANSWER IS B.
 
 
+40.
+Given:
+jdeps -jdkinternals C:\workspace4\SimpleSecurity\jar\classes.jar
+Which describes the expected output?
+A . jdeps lists the module dependencies and the package names of all referenced JDK internal APIs. If
+any are found, the suggested replacements are output in the console.
+B . jdeps outputs an error message that the -jdkinternals opon requires either the -summary or the -
+verbose opons to output to the console.
+C . The -jdkinternals opon analyzes all classes in the .jar and prints all class-level dependencies.
+D . The -jdkinternals opon analyzes all classes in the .jar for class-level dependencies on JDK internal
+APIs. If any are found, the results with suggested replacements are output in the console.
 
+THE CORRECT ANSWER IS D.
+
+Explanation:
+-jdkinternals option analyzes all classes in the .jar for class-level dependencies on JDK internal APIs. If
+any are found, the results with suggested replacements are output in the console
+
+41.
+Given:
+List<String> longlist = List.of("HELLO", "WORLD","BEAT");
+List shortList = new ArrayList<>();
+
+Which code fragment correctly forms a short list of words containing the letter “E”?
+
+A.	longlist.stream().
+         filter(w ->  w.indexOf("E")  != -1)
+                 .parallel()
+                 .forEach(w -> shortList.add(w));
+B.	longList.parallelStream()
+        .filter(w ->  w.indexOf("E) != -1)
+        .forEach(w -> shortList.add(w));
+
+C.	shortList = longlist.stream()
+    .filter(w ->  w.indexOf("E) != -1)
+            .parallel()
+        .collect(Collectors.toList());
+D.	longlist.stream()
+       .filter(w -> w.indexOf("E)  != -1)
+        .parallel()
+        .collect(shortList);
+
+
+THE CORRECT ANSWER IS C AND B AND A.
+
+42.
+Given the code fragment:
+Path source = Paths.get(''/repo/a/a.txt'');
+Path desnaon = Paths.get(''/repo'');
+Files.move(source, desnaon); // line 1
+Files.delete (source); // line 2
+Assuming the source file and desnaon folder exist, what Is the result?
+A . A java.nio.file.FileAlreadyExistsExcepon is thrown on line 1.
+B . A java.nio.file.NoSuchFileExcepon is thrown on line 2.
+C . A copy of /repo/a/a.txt is moved to the /repo directory and /repo/a/a.txt is deleted.
+D . a.txt is renamed repo.
+
+THE CORRECT ANSWER IS A.
+
+43.
+enum Letter {
+    ALPHA(100), BETA(200), GAMMA(300);
+    int v;
+
+    Letter(int v) {
+    }
+  // Line 1
+}
+
+Examine this code:
+System.out.println(Leer.values()[1]);
+What code should be wrien at line 5 for this code to print 200?
+A . public String toString() { return String.valueOf(ALPHA.v); }
+B . public String toString() { return String.valueOf(Leer.values()[1]); }
+C . public String toString() { return String.valueOf(v); }
+D . String toString() { return ''200''; }
+
+
+THE CORRECT ANSWER IS B.
