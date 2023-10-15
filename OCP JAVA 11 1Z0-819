@@ -1313,3 +1313,110 @@ C . ''eeee d+''th of''+ MMMM yyyy''
 D . ''eeee d'th of' MMMM yyyy''
 
 THE CORRECT ANSWER IS D.
+
+
+46.
+enum QUALITY {
+    A(1000), B(75), C(50);
+    int percent;
+
+    private QUALITY(int present) {
+        this.percent = percent;
+    }
+    void checkQuality(QUALITY q) {
+        switch(q) {
+            case  //* Insert code here */:
+                
+                System.out.println("Best");
+                Default:
+                System.out.println("Not best");
+            break;
+        }
+    }
+}
+
+Which code fragment can be inserted into the switch statement to print Best?
+A . QUALITY.A.ValueOf()
+B . A
+C . A.toString()
+D . QUALITY.A
+THE CORRECT ANSWER IS B.
+
+47.
+Which interface in the java.ul. function package can return a primitive type?
+A . ToDoubleFuncon
+B . Supplier
+C . BiFunction
+D . LongConsumer
+
+THE CORRECT ANSWER IS A. Supplier and  BiFunction both return the specified type. and LongConsumer is void.
+
+48.
+GIVEN:
+
+ public static void main(String[] args) throws IOException {
+            final List<String> fruits = List.of("Orange", "Apple", "Lemmon", "Raspberry");
+            final List<String> types =
+                    List.of("Juice", "Pie", "Ice", "Tart");
+            final var stream = IntStream.range(0, Math.min(fruits.size(), types.size()))
+                    .mapToObj((i) -> fruits.get(i) + " " + types.get(i));
+            stream.forEach(System.out::println);
+}
+
+What is the result?
+A . Orange Juice
+B . The compilation fails.
+C . Orange Juice Apple Pie Lemmon Ice Raspberry Tart
+D . The program prints nothing.
+
+THE CORRECT ANSWER IS C.
+
+49.
+Which two statements correctly describe the capabilities of interfaces and abstract classes? (Choose two.)
+A . Interfaces cannot have protected methods but abstract classes can.
+B . Both interfaces and abstract classes can have final methods.
+C . Interfaces cannot have instance fields but abstract classes can.
+D . Interfaces cannot have static methods but abstract classes can.
+E . Interfaces cannot have methods with bodies but abstract classes can.
+
+THE CORRECT ANSWER IS A AND C.
+
+50.
+Which  annotation uses are valid? (Choose any.)
+      A.  Function<String, String> func1 = (@NonNull x) -> x.toUpperCase();
+      B.  var v = "Hello" + (@NonNull) "World";
+      C.  Function<String, String> func2 = (var @NonNull x) -> x.toUpperCase();
+      D.  Function<String, String> func3 = (@NonNull var x) -> x.toUpperCase();
+      E.  var myString = (@NonNull String) str;
+      F.  var obj =  new @NonNull   Teacher();
+THE CORRECT ANSWER IS D.
+
+51.
+Consider this method declaration:
+Void setSessionUser(Connection conn, String user) throws SQLException{
+Statement stmt = conn.createStatement();
+String sql = <EXPRESSION>;
+stm
+
+A) ''SET SESSION AUTHORIZATION '' + user
+B) ''SET SESSION AUTHORIZATION '' + stmt.enquoteIdenfier(user)
+Is A or B the correct replacement for <EXPRESSION> and why?
+A . A, because it sends exactly the value of user provided by the calling code.
+B . B, because enquong values provided by the calling code prevent SQL injection.
+C . A and B are functionally equivalent.
+D . A, because it is unnecessary to enclose identifiers in quotes.
+E . B, because all values provided by the calling code should be enquoted.
+
+THE CORRECT ANSWER IS B.
+
+51.
+Which two safely validate inputs? (Choose two.)
+A . Delegate numeric range checking of values to the database.
+B . Accept only valid characters and input values.
+C . Use trusted domain-specific libraries to validate inputs.
+D . Assume inputs have already been validated.
+E . Modify the input values, as needed, to pass validaon.
+
+
+THE CORRECT ANSWER IS B AND C.
+
