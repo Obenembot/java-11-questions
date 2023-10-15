@@ -24,10 +24,11 @@ public class FizzBuzz {
 Which code fragment replaces the for statement?
 A. IntStream.rangeClosed(l, 100).map(FizzBuzz::convert).forEach(System.out::println);
 B. IntStream.ranged, 100).map(FizzBuzz::convert).forEach(System.out::println);
-C. intstream.rangeclosed(l, 100).mapToObj{FizzBuzz::convert).forEach(System.out::printIn);
+C. IntStream.rangeClosed(1, 100).mapToObj{FizzBuzz::convert).forEach(System.out::printIn);
 D. IntStream.range(1, 100).mapToObj(FizzBuzz::convert).forEach(System.out::println); 
 
-CORRECT ANSWER IS D.
+CORRECT ANSWER IS C. WATCH OUT FOR map and convert(int x) method as it expects an int. 
+// ranged start inclusive and end exclusive and rangeClosed start and end is inclusive
 
 2.
 interface Abacus {
