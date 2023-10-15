@@ -1525,3 +1525,193 @@ C . java.ul. function.Function
 D . java.ul.concurrent.Callable
 
 THE CORRECT ANSWER IS A. //CAREFUL WITH WHAT IS BEEN PASSED AS METHOD ARUGUREMENT (submit()).  IF IT IS VOID THEN THE CALL IS Runnable otherwise it is Callable
+
+
+57.
+    public static void main(String[] args) {
+
+        try (FileReader fileReader1 = new FileReader("file_to_path");
+             FileReader fileReader2 = new FileReader("file_to_path");
+             FileReader fileReader3 = new FileReader("file_to_path")) {
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//        Line 1
+        System.out.println("Done!");
+}
+When run and all three files exist, what is the state of each reader on Line 1?
+A . All three readers are sll open.
+B . All three readers have been closed.
+C . The compilaon fails.
+D . Only reader1 has been closed.
+
+THE CORRECT ANSWER IS C. 
+
+58.
+Which three guidelines are used to protect confidenal informaon? (Choose three.)
+A . Limit access to objects holding confidenal informaon.
+B . Clearly idenfy and label confidenal informaon.
+C . Manage confidenal and other informaon uniformly.
+D . Transparently handle informaon to improve diagnoscs.
+E . Treat user input as normal informaon.
+F . Validate input before storing confidenal informaon.
+G . Encapsulate confidenal informaon.
+
+THE CORRECT ANSWER IS A, B, G.
+
+58.
+GIVEN: 
+
+public class Person {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    private String name;
+    private int age;
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
+    public static void main(String[] args) {
+        List<Person> persons = new ArrayList<>(List.of(new Person("Tom",101),
+                new Person("Aman",102),
+                new Person("Peter",102),
+                new Person("James",101)));
+
+        persons.sort(Comparator.comparing(Person::getAge).thenComparing(Person::getName).reversed());
+
+        persons.forEach(System.out::println);
+    }
+}
+
+A.
+Person{name='Peter', age=102}
+Person{name='Aman', age=102}
+Person{name='Tom', age=101}
+Person{name='James', age=101}
+
+B.
+Person{name='Peter', age=102}
+Person{name='Aman', age=102}
+Person{name='Tom', age=101}
+Person{name='Tom', age=101}
+
+C.
+Person{name='Peter', age=102}
+Person{name='Aman', age=102}
+Person{name='Tom', age=101}
+Person{name='Aman', age=101}
+
+D.
+Person{name='Peter', age=102}
+Person{name='Tom', age=102}
+Person{name='Aman', age=101}
+Person{name='Peter', age=101}
+
+THE CORRECT ANSWER IS A.
+
+59.
+GIVEN:
+
+public class Person {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    private String name;
+    private int age;
+
+    @Override
+    public String toString() {
+        return name
+                ;
+    }
+
+    public static void main(String[] args) {
+        List<Person> persons = new ArrayList<>(List.of(new Person("Tom",102),
+                new Person("Aman",102),
+                new Person("Peter",102)));
+
+        persons.sort(Comparator.comparing(Person::getAge).thenComparing(Person::getName).reversed());
+
+        persons.forEach(System.out::println);
+    }
+}
+
+A.
+Aman
+Peter
+Tom
+
+B.
+Peter
+Aman
+Tom
+
+C.
+Tom
+Aman
+Peter
+
+D.
+Aman
+Tom
+Peter
+
+THE CORRECT ANSWER IS A.
+
+60.
+Given: 
+
+long count = persons.stream()
+                // line 1
+        System.out.println(count);
+
+Which code, when inserted on line 1, prints the number of unique Names from the roster list?
+A . .map(Person::getLocality) .distinct() .count();
+B . map(e > e.getName()) .count();
+C . .map(e > e.getName()) .collect(Collectors.toSet()) .count();
+D . .filter(Person::getName) .distinct() .count();
+
+THE CORRECT ANSWER IS A.
