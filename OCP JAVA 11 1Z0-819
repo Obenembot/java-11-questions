@@ -1420,3 +1420,107 @@ E . Modify the input values, as needed, to pass validaon.
 
 THE CORRECT ANSWER IS B AND C.
 
+
+52.
+import java.util.*;
+
+import static java.util.stream.Collectors.*;
+
+class Sale {
+    private String customer;
+    private List<Book> items;
+  //GETTER SETTER AND CONSTRUCTOR
+   
+}
+
+class Book {
+    private String name;
+    private double price;
+
+  //GETTER SETTER AND CONSTRUCTOR
+}
+
+Given a list of Sale objects, tList, which code fragment creates a list of total sales for each customer in
+ascending order?
+
+A.
+ List<String> totalByUser = tList.stream()
+                .collect(groupingBy(Sale::getCustomer,
+                        flatMapping (t -> t.getItems().stream(),
+                                summingDouble(Book::getPrice))))
+                .entrySet().stream()
+                .sorted(Comparator.comparing(Map.Entry::getValue))
+                .collect(mapping (e -> e.getKey()+ ":"+ e.getValue(), toList()));
+
+B.
+List<String> totalByUser = totalByUser = tList.stream()
+                .collect(flatMapping(t -> t.getItems().stream(),
+                        groupingBy((Sale::getCustomer,
+                                summingDouble(Book::getPrice))))
+                .sorted(Comparator.comparing (Map.Entry::getValue))
+                .collect(mapping(e -> e.getkey()+ ":"  + e.getValue(), toList()));
+
+C.
+   List<String> totalByUser = tList.stream()
+                .collect(groupingBy(Sale::getCustomer,
+                        flatMapping(t -> t.getItems().stream(),
+                                summingDouble(Book::getPrice))))
+                .sorted(Comparator.comparing(Map.Entery::getValue))
+                .collect(mapping (e -> e.getKey() + ":" + e.getValue(), toList()));
+
+D.
+List<String> totalByUser = tList.stream()
+                .collect(flatMapping (t -> t.getItems().stream(),
+                        groupingBy(Sale::getCustomer,
+                                summingDouble(Book::getPrice))))
+                .entrySet().stream()
+                .sorted(comperatorComparing(Entry::getValue))
+                .collect(mapping (e -> e.getKey() + ":" + e.getValue(),  toList()));
+
+THE CORRECT ANSWER IS A.
+
+53.
+Which two are secure serializaon of these objects? (Choose two.)
+A . Define the serialPersistentFields array field.
+B . Declare fields transient.
+C . Implement only readResolve to replace the instance with a serial proxy and not writeReplace.
+D . Make the class abstract.
+E . Implement only writeReplace to replace the instance with a serial proxy and not readResolve
+
+THE CORRECT ANSWER IS A AND B.
+
+54.
+Which two statements set the default locale used for formang numbers, currency, and percentages?
+(Choose two.)
+A . Locale.setDefault(Locale.Category.FORMAT, "zh-CN");
+B . Locale.setDefault(Locale.Category.FORMAT, Locale.CANADA_FRENCH);
+C . Locale.setDefault(Locale.SIMPLIFIED_CHINESE);
+D . Locale.setDefault("en_CA");
+E . Locale.setDefault("es", Locale.US);
+
+THE CORRECT ANSWER IS B AND E.
+
+55.
+Given the code fragment:
+var pool = Executors.newFixedThreadPool(5);
+Future outcome = pool.submit(() > 1);
+Which type of lambda expression is passed into submit()?
+A . java.lang.Runnable
+B . java.ul.function.Predicate
+C . java.ul. function.Function
+D . java.ul.concurrent.Callable
+
+THE CORRECT ANSWER IS D. ////CAREFUL WITH WHAT IS BEEN PASSED AS METHOD ARUGUREMENT (submit()).  IF IT IS VOID THEN THE CALL IS Runnable otherwise it is Callable
+
+
+56.
+Given the code fragment:
+var pool = Executors.newFixedThreadPool(5);
+       Future outcome = pool.submit(() -> System.out.println());
+Which type of lambda expression is passed into submit()?
+A . java.lang.Runnable
+B . java.ul.function.Predicate
+C . java.ul. function.Function
+D . java.ul.concurrent.Callable
+
+THE CORRECT ANSWER IS A. //CAREFUL WITH WHAT IS BEEN PASSED AS METHOD ARUGUREMENT (submit()).  IF IT IS VOID THEN THE CALL IS Runnable otherwise it is Callable
