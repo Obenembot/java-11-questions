@@ -1715,3 +1715,73 @@ C . .map(e > e.getName()) .collect(Collectors.toSet()) .count();
 D . .filter(Person::getName) .distinct() .count();
 
 THE CORRECT ANSWER IS A.
+
+61.
+Given:
+public class Person {
+    class Student{
+        Student(String name){
+       }
+    }
+    public static void main(String[] args) {
+        var student = new Student("Hello");
+    }
+}
+
+Which two independent changes will make the Main class compile? (Choose two.)
+A . Move the entire Student class declaration to a separate Java file, Student.java.
+B . Change line 2 to public Student(String name).
+C . Change line 1 to public static class Student {.
+D . Change line 3 to Student student = new Student(''Biology'');.
+E . Change line 1 to stac class Student {.
+
+THE CORRECT ANSWER IS A AND E.
+
+62.
+public class Main {
+    public static void main(String[] args) {
+        List<String> list1 = new LinkedList<String>();
+        Set<String> hs1 = new HashSet<String>();
+        String[] v = {"a", "b", "c", "b", "a"};
+        for (String s : v) {
+            list1.add(s);
+            hs1.add(s);
+        }
+
+
+        System.out.print(hs1.size() + "" + list1.size() + " ");
+        HashSet hs2 = new HashSet(list1);
+        LinkedList list2 = new LinkedList(hs1);
+        System.out.print(hs2.size() + "" + list2.size());
+    }
+}
+
+What is the result?
+A . 3 5 3 3
+B . 3 3 3 3
+C . 3 5 3 5
+D . 5 5 3 3
+
+THE CORRECT ANSWER IS A 
+
+63.
+GIVEN:
+
+public class Main {
+
+    public static void main(String[] args) {
+        var numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        Optional<Integer> result = numbers.stream().filter(x -> x % 3 != 0).reduce((i, j) -> i + j);
+        result.ifPresent(System.out::println); // line 1
+    }
+}
+
+Which is true about line 1?
+A . If the value is not present, a NoSuchElementExcepon is thrown at runTime.
+B . It always executes the System.out::print statement.
+C . If the value is not present, a NullPointerExcepon is thrown at runTime.
+D . If the value is not present, nothing is done.
+
+THE CORRECT ANSWER IS D. 
+
+
