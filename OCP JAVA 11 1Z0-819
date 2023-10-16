@@ -480,9 +480,9 @@ public class Main {
 A. An exception is thrown at runtime.
 B.  AUTO: Toyota
     MEDICAL: Scanner
-C. The compilaon fails due to an error on line 2.
-D. The compilaon fails due to an error on line 1.
-E. The compilaon fails due to an error on line 3
+C. The compilation fails due to an error on line 2.
+D. The compilation fails due to an error on line 1.
+E. The compilation fails due to an error on line 3
 F. AUTO: Vehicle
    MEDICAL: Scanner
 
