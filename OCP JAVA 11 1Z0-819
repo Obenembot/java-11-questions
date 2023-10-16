@@ -1784,4 +1784,25 @@ D . If the value is not present, nothing is done.
 
 THE CORRECT ANSWER IS D. 
 
+64.
+GIVEN:
+
+public class Main {
+    public static void main(String[] args) {
+        Integer [] intArray = {2,1,3,4,5};
+        List<Integer> list = new ArrayList<>(Arrays.asList(intArray));
+        list.parallelStream().forEach(e -> System.out.print(e + " "));
+    }
+}
+
+Which two are correct? (Choose two.)
+A . The output will be exactly 2 1 3 4 5.
+B . The program prints 2 1 3 4 5. but the order is unpredictable.
+C . Replacing forEach() with forEachOrdered(), the program prints 2 1 3 4 5, but the order is
+unpredictable.
+D . Replacing forEach() with forEachOrdered(), the program prints 1 2 3 4 5.
+E . Replacing forEach() with forEachOrdered(), the program prints 2 1 3 4 5.
+
+THE CORRECT ANSWER IS B AND E.
+
 
