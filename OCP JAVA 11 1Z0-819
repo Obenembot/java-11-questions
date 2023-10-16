@@ -1806,3 +1806,28 @@ E . Replacing forEach() with forEachOrdered(), the program prints 2 1 3 4 5.
 THE CORRECT ANSWER IS B AND E.
 
 
+65.
+Given:
+class Secret{
+
+    String names[];
+
+    public Secret(String[] names){
+        this.names = names;
+    }
+
+    public String[] getNames() {
+        return names;
+    }
+}
+
+Which three acons implement Java SE security guidelines? (Choose three.)
+A . Change line 7 to return names.clone();.
+B . Change line 4 to this.names = names.clone();.
+C . Change the getNames() method name to get$Names().
+D . Change line 6 to public synchronized String[] getNames() {.
+E . Change line 2 to private final String[] names;.
+F . Change line 3 to private Secret(String[] names) {.
+G . Change line 2 to protected volale String[] names;.
+
+THE CORRECT ANSWER IS A AND B AND E
