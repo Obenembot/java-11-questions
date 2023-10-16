@@ -1998,3 +1998,100 @@ C . 3
 D . 6104 3
 THE CORRECT ANSWER IS A. //  .map(n -> n +1) CAN'T add 1 to an object.
 
+72.
+GIVEN:
+	 Consumer consumer = mess ->  System.out.print; // line 1
+         consumer.accept("Hello lamda!");
+
+This code results in a compilaon error.
+Which code should be inserted on line 1 for a successful compilaon?
+A . Consumer consumer = msg -> { return System.out.print(msg); };
+B . Consumer consumer = var arg > {System.out.print(arg);};
+C . Consumer consumer = (String args) > System.out.print(args);
+D . Consumer consumer = System.out::print;
+
+THE CORRECT ANSWER IS D.
+
+73.
+GIVEN:
+
+
+public class Main {
+    public static void main(String[] args) {
+        String originalPath = "data\\projects\\a-project\\..\\..\\another-project";
+        Path path = Paths.get(originalPath);
+        System.out.println(path.normalize());
+        System.out.println(path.toAbsolutePath());
+    }
+}
+What is the result?
+A . data\another-project
+B . data\projects\a-project\another-project
+C . data\\projects\\a-project\\..\\..\\another-project
+D . data\projects\a-project\..\..\another-project
+
+THE CORRECT ANSWER IS D.
+
+74.
+GIVEN:
+
+A company has an exisng sales applicaon using a Java 8 jar file containing packages:
+com.company.customer;
+com.company.customer.orders;
+com.company.customer.info;
+com.company.sales;
+com.company.sales.leads;
+com.company.sales.closed;
+com.company.orders;
+com.company.orders.pending;
+com.company.orders.shipped.
+To modularize this jar file into three modules, customer, sales, and orders, which module-info.java
+would be correct?
+
+A. 
+module com.company.customer {
+    exports com.company.customer;
+}
+module com.company.sales {
+    exports com.company.sales;
+}
+module com.company.orders {
+    exports com.company.orders;
+}
+
+B.
+module com.company.customer {
+    opens com.company.customer;
+}
+module com.company.sales {
+    opens com.company.sales;
+}
+module com.company.orders {
+    opens com.company.orders;
+}
+
+
+C.
+module com.company.customer {
+    reqquires com.company.customer;
+}
+module com.company.sales {
+    reqquires com.company.sales;
+}
+module com.company.orders {
+    reqquires com.company.orders;
+}
+
+
+D.
+module com.company.customer {
+    provides com.company.customer;
+}
+module com.company.sales. {
+    provides com.company.sales;
+}
+module com.company.orders {
+    provides com.company.orders;
+}
+
+THE CORRECT ANSWER IS A
