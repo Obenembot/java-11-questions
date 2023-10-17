@@ -1087,7 +1087,7 @@ B . True
 C . False
 D . A java.lang.NullPointerExcepon is thrown
 
-THE CORRECT ANSWER IS A.
+THE CORRECT ANSWER IS B.
 
 35.
 Given the code fragment:
