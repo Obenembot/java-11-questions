@@ -2030,7 +2030,7 @@ B . data\projects\a-project\another-project
 C . data\\projects\\a-project\\..\\..\\another-project
 D . data\projects\a-project\..\..\another-project
 
-THE CORRECT ANSWER IS D.
+THE CORRECT ANSWER IS B.
 
 74.
 GIVEN:
