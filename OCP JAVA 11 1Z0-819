@@ -2379,5 +2379,49 @@ D . /u01/work/filestore.txt is deleted.
 
 CORRECT ANSWER IS B.
 
+85.
+GIVEN:
+
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+@interface AuthorInfo {
+    String author() default "";
+
+    String date();
+
+    String[] comments() default {};
+}
+
+WHAT OPTION IS CORRECT?
+A. 
+@AuthorInfo(date = "2020-1-1", comments = {})
+class  Hello{
+    public void func(){
+    }
+}
+
+
+B. 
+class  Helloo{
+    @AuthorInfo(date = "2020-1-1", comments = "")
+    public void func(){
+    }
+}
+
+C.
+class  Hellooo{
+    @AuthorInfo()
+    public void func(){
+    }
+}
+
+D.
+@AuthorInfo(date = "2020-1-1", comments = "")
+class  Hellooo{
+    public void func(){
+    }
+}
+
+CORRECT ANSWER IS B.
 
 
