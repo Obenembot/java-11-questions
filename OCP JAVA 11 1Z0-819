@@ -2184,4 +2184,131 @@ D . Add extends Excepti on on line 1. Add extends GeneralExcepti on on line 2.
 
 CORRECT ANSWER IS C AND D.
 
+77.
+GIVEN:
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
+
+public class Main {
+    public static void main(String[] args) {
+            List fruits = Arrays.asList("apple","orange","banana");
+            Consumer<String> c =System.out::print;
+            Consumer<String> output =  c.andThen(x -> System.out.print(":" + x.toUpperCase()));
+
+            fruits.forEach(output);
+    }
+}
+
+What is the output?
+A . :APPLE:ORANGE:BANANA appleorangebanana
+B . :APPLE:ORANGE:BANANA
+C . APPLE:apple ORANGE:orange BANANA:banana
+D . appleorangebanana :APPLE:ORANGE:BANANA
+E . apple:APPLE orange:ORANGE banana:BANANA
+
+CORRECT ANSWER IS D.
+
+78.
+Which code is correct?
+ A .       Runnable r = "Message" > System.out.println();
+ B .      Runnable r = () > System.out::print;
+ C .     Runnable r = () -> {System.out.println("Message");};
+ D .     Runnable r = >System.out.println("Message");
+ E .     Runnable r = {System.out.println("Message")};
+
+CORRECT ANSWER IS C.
+
+79.
+GIEVEN:
+class X {
+}
+
+ final class Y extends X {
+    public static void main(String[] args) {
+    }
+}
+
+What is the result of compiling these two classes?
+A . The compila on fails because there is no zero args constructor defined in class X.
+B . The compila on fails because either class X or class Y needs to implement the toString() method.
+C . The compila on fails because a final class cannot extend another class.
+D . The compila on succeeds.
+
+CORRECT ANSWER IS D.
+
+80.
+GIVEN:
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+    public static void main(String[] args) {
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(System.in))) {
+            System.out.print("Input:");
+            String input = in.readLine();
+            System.out.println("Echo: " + input);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+And the command:
+java Main Helloworld
+What is the result ?
+A . Input: Echo:
+B . Input: Helloworld Echo: Helloworld
+C . Input: Then block un l any input comes from System.in.
+D . Input: Echo: Helloworld
+E . A NullPointerExcep on is thrown at run  me.
+
+CORRECT ANSWER IS B.
+
+81.
+Which statement about a func onal interface is true?
+A . It must be defined with the public access modifier.
+B . It must be annotated with @Func onalInterface.
+C . It is declared with a single abstract method.
+D . It is declared with a single default method.
+E . It cannot have any private methods and sta c methods.
+
+CORRECT ANSWER IS C.
+
+82.
+GIVEN: 
+class CustomerType<T>{
+    public <T> int count (T[] anArray, T element){
+        int count = 0;
+        for(T e : anArray){
+            if(e.equals(element)) ++count;
+        }
+        return count;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        String[] words = {"banana","orange", "apple", "lemon"};
+        Integer[] numbers = {1, 2, 3, 4, 5};
+        CustomerType type = new CustomerType();
+        CustomerType<String> stringType = new CustomerType<>();
+        System.out.println(stringType.count(words, "apple"));
+        System.out.println(type.count(words, "apple"));
+        System.out.println(type.count(numbers, 3));
+    }
+}
+
+What is the result?
+A . A NullPointerExcep on is thrown at run  me.
+B . The compila on fails.
+C . 1 Null null
+D . 1 1 1
+E . A ClassCastExcep on is thrown at run  me.
+
+CORRECT ANSWER IS D.
+
 
