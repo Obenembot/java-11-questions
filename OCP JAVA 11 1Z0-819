@@ -2099,4 +2099,89 @@ THE CORRECT ANSWER IS A
 75. 
 GIVEN:  
 
-ON QUESTION 77.
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+    public void resourceFindings() {
+        List<Reader> dateFiles = new ArrayList<>();
+        File indexFile = new File("MyIndex.idx");
+        try (BufferedReader indexReader =
+                     new BufferedReader(new FileReader(indexFile))) {
+            for (String file = indexReader.readLine();
+                 file != null; file = indexReader.readLine()) {
+                BufferedReader dataReader = new BufferedReader(
+                        new FileReader(new File(file)));//line 1
+                dateFiles.add(dataReader); // line 2
+//                processData(dataReader);//line 3
+            }
+        } catch (IOException e) {
+//..
+        } finally {
+            for (Reader r : dateFiles) {
+                try {
+                    r.close();
+                } catch (IOException e) {
+
+                }// line 4
+            }
+        }
+    }
+}
+
+What will secure this code from a potential Denial of Service condition?
+A . Aer Line 4, add indexReader.close().
+B . On Line 3, enclose processData(dataReader) with try with resources.
+C . After Line 3, add dataReader.close().
+D . On Line 1, use try with resources when opening each DataReader.
+E . Before Line 1, check the size of dataFiles to make sure it does not exceed a threshold.
+
+CORRECT ANSWER IS D. E will be the next best option followed by C.
+
+76.
+GIVEN:
+
+public class Test {
+    public static void doThings() throws GeneralException, SpecificException {
+        try {
+            throw new GeneralException("Something happened");
+        } catch (Exception e) {
+            throw new SpecificException(e.getMessage());
+
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            Test.doThings();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+class GeneralException <LINE 1> {
+    public GeneralException(String s) {
+        super(s);
+    }
+
+}
+
+class SpecificException <LINE 2> {
+    public SpecificException(String s) {
+        super(s);
+    }
+}
+
+
+Which op on should you choose to enable the code to print Something happened?
+A . Add extends GeneralExcepti on on line 1. Add extends Excepti on on line 2.
+B . Add extends SpecificExcepti on on line 1. Add extends GeneralExcepti on on line 2.
+C . Add extends Excepti on line 1. Add extends Excepti on on line 2.
+D . Add extends Excepti on on line 1. Add extends GeneralExcepti on on line 2.
+
+CORRECT ANSWER IS C AND D.
+
+
