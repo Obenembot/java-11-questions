@@ -2424,4 +2424,145 @@ class  Hellooo{
 
 CORRECT ANSWER IS B.
 
+86.
+GIVEN:
+
+public class MyResource  {
+    public MyResource(){
+    }
+//RESOURCE METHOD.
+}
+
+You want to use the myResource class in a try-with-resources statement. Which change will accomplish
+this?
+A . Extend AutoCloseable and override the close method.
+B . Implement AutoCloseable and override the autoClose method.
+C . Extend AutoCloseable and override the autoClose method.
+D . Implement AutoCloseable and override the close method.
+
+CORRECT ANSWER IS D.
+
+87.
+Which interface in the java.u l.func on package will return a void return type?
+A . Supplier
+B . Predicate
+C . Func on
+D . Consumer
+
+CORRECT ANSWER IS D.
+
+88.
+GIVEN:
+
+public class Main {
+    public static void main(String... args) {
+
+        List<Employee> list = List.of(new Employee("John", 80000.0),new Employee("Scott", 90000.0));
+        double starts =0.0;
+        double ratio = 1.0;
+        BinaryOperator<Double> bo = (a, b) -> a+b;
+        double totalSalary = list.stream().map(e -> e.getSalary() * ratio).reduce(starts,bo); // LINE 1
+        System.out.println("Total salary =" + totalSalary);
+    }
+}
+
+class Employee{
+    String name;
+    double salary;
+
+    public Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+}
+
+Which statement is equivalent to line 1?
+A . double totalSalary = list.stream().map(e > e.getSalary() * ra o).reduce (bo).ifPresent (p >
+p.doubleValue());
+B . double totalSalary = list.stream().mapToDouble(e -> e.getSalary() * ratio).sum();
+C . double totalSalary = list.stream().map(Employee::getSalary * ra o).reduce (bo).orElse(0.0);
+D . double totalSalary = list.stream().mapToDouble(e > e.getSalary() * ra o).reduce(starts, bo);
+
+CORRECT ANSWER IS B.
+OTHER POSSIBLE ANSWERS WITH CHANGES ARE
+A. double totalSalary1 = list.stream().map(Employee::getSalary).reduce (bo).orElse(0.0);
+B. DoubleBinaryOperator bo1 = (a, b) -> a + b; 
+	double totalSalary = list.stream().mapToDouble(e -> e.getSalary() * ratio).reduce(starts,bo1);
+
+89.
+GIVEN:
+
+public class Employee {
+
+    private String name;
+    private LocalDate birthday;
+
+  //GETTER
+//SETTER
+//CONSTRUCTORS
+
+    public static void main(String[] args) {
+        List<Employee> roster = new ArrayList<>();
+        roster.add(new Employee("Sam", LocalDate.now()));
+        roster.add(new Employee("Tabi", LocalDate.of(1970,10,10)));
+
+        Predicate<Employee> y = (Employee e) -> e.getBirthday().isBefore(IsoChronology.INSTANCE.date(1989,1,1));
+        Set<String> s1 = roster.stream()
+                .collect(Collectors.partitioningBy(y))
+                .get(true)
+                .stream().map(Employee::getName)
+                .collect(Collectors.toSet());
+        System.out.println(s1);
+
+    }
+}
+Which code fragment on line 1 makes the s1 set contain the names of all employees born before
+January 1, 1989?
+
+A.
+.collect(Collectors.partitioningBy(y))
+                .get(true)
+                .stream().map(Employee::getName)
+                .collect(Collectors.toSet());
+B.
+.collect(Collectors.partitioningBy(y,
+                        Collectors.mapping(Employee::getName,Collectors.toSet())));
+C. .collect(Collectors.partitioningBy(y,
+                        Collectors.mapping(Employee::getName, Collectors.toCollection(TreeSet::new))))
+D.
+.collect(Collectors.partitioningBy(y))
+                .get(true)
+                .map(Employee::getName)
+                .collect(Collectors.toCollection(TreeSet::new));
+
+CORRECT ANSWER IS A.
+// B AND C returns a Map<Boolean, Set<String>>  and D does not compile.
+
+90.
+GIVEN: 
+public static void main(String[] args) {
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in));){
+            String input  = br.readLine();
+            System.out.println("Input String was: " + input);
+        }catch(IOException e){
+            e.getStackTrace();
+        }
+    }
+Which is true?
+A . System.out is the standard output stream. The stream is open only when System.out is called.
+B . System.in cannot reassign the other stream.
+C . System.out is an instance of java.io.OutputStream by default.
+D . System.in is the standard input stream. The stream is already open.
+
+CORRECT ANSWER IS D.
+
+
 
