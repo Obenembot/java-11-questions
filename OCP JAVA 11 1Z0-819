@@ -2616,5 +2616,109 @@ D . Func on<String> func on = m > m.toUpperCase();
 CORRECT ANSWER IS C.
 
 93.
+GIVEN: 
 
-for 95.
+var numbers = List.of(0,1,2,3,4,5,6,7,8,9);
+You want to calculate the average of numbers. Which two codes will accomplish this? (Choose two.)
+A . double avg = numbers.stream().parallel().averagingDouble(a > a);
+B . double avg = numbers.parallelStream().mapToInt (m > m).average().getAsDouble ();
+C . double avg = numbers.stream().mapToInt (i > i).average().parallel();
+D . double avg = numbers.stream().average().getAsDouble();
+E . double avg = numbers.stream().collect(Collectors.averagingDouble(n > n));
+
+CORRECT ANSWER IS B AND E.
+
+94.
+GIVEN:
+
+public enum Color implements Serializable {
+    R(1), G(2), B(3);
+    int c;
+
+    public Color(int c) {
+        this.c = c;
+    }
+}
+
+What acon ensures successful compilation?
+A . Replace public Color(int c) with private Color(int c).
+B . Replace int c; with private int c;.
+C . Replace int c; with private final int c;.
+D . Replace enum Color implements Serializable with public enum Color.
+E . Replace enum Color with public enum Color.
+
+CORRECT ANSWER IS A.
+
+95.
+GIVEN:
+
+module main{
+    exports country;
+    uses country.countryDdetails;
+ }
+
+Which two are true? (Choose two.)
+A . A module providing an implementaon of country.CountryDetails can be compiled and added
+without recompiling the main module.
+B . A module providing an implementaon of country.CountryDetails must have a requires main;
+direcve in its module-info.java file.
+C . An implementaon of country.countryDetails can be added to the main module.
+D . To compile without an error, the applicaon must have at least one module in the module source
+path that provides an implementaon of country.CountryDetails.
+E . To run without an error, the applicaon must have at least one module in the module path that
+provides an implementaon of country.CountryDetails.
+
+CORRECT ANSWER IS A AND D.
+
+96.
+Which code fragment prints 100 random numbers?
+
+A.
+   var r = new Random();
+        DoubleStream.generate(r::nextDouble)
+                .limit(100)
+                .forEach(System.out::println);
+B.
+        DoubleStream.generate(Random::nextDouble)
+                .limit(100)
+                .forEach(System.out::println);
+C.
+ var r = new Random();
+        new DoubleStream(r::nextDouble)
+                .limit(100)
+                .forEach(System.out::println);
+D.
+ DoubleStream.generate(Random.nextDouble)
+                .limit(100)
+                .forEach(System.out::println);
+CORRECT ANSWER IS A. 
+
+97.
+GIVEN:
+
+public class Hello {
+    class Greeting {
+        void sayHi() {
+            System.out.println("Hello World");
+        }
+    }
+
+    public static void main(String[] args) {
+        //LINE 1
+    }
+}
+
+What code must you insert on Line 1 to enable the code to print Hello World?
+A . Hello.Greeng myG = new Hello.Greeng();
+    myG.sayHi();
+B . Hello myH = new Hello();
+    Hello.Greeng myG = myH.new Greeng();
+    myG.sayHi();
+C . Hello myH = new Hello();
+    Hello.Greeng myG = myH.new Hello.Greeng();
+    myG.sayHi();
+D . Hello myH = new Hello(); 
+    Greeng myG = new Greeng();
+    myG.sayHi ();
+
+CORRECT ANSWER IS B. 
