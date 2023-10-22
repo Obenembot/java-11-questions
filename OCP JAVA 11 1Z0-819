@@ -2564,5 +2564,57 @@ D . System.in is the standard input stream. The stream is already open.
 
 CORRECT ANSWER IS D.
 
+91.
+GIVEN:
 
+public class Main {
+    public static void main(String[] args) {
+        try {
+      
+            //LINE 1
+            lines.map(l -> l.toUpperCase())
+                    .forEach((line) -> {
+                        try {
+                            Files.write(Paths.get("outputfile_to_path"),
+                                    line.getBytes(), StandardOpenOption.CREATE);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
 
+You want to obtain the Stream object on reading the file. Which code inserted on line 1 will accomplish
+this?
+A . var lines = Files.lines(Paths.get(INPUT_FILE_NAME));
+B . Stream lines = Files.readAllLines(Paths.get(INPUT_FILE_NAME));
+C . var lines = Files.readAllLines(Paths.get(INPUT_FILE_NAME));
+D . Stream<String> lines = Files.lines(INPUT_FILE_NAME);
+
+CORRECT ANSWER IS A.
+
+92.
+GIVEN:
+
+   public static void main(String[] args) {
+
+    //LINE 1
+        List<String> fruits = new ArrayList<>(List.of("apple","orange","banana"));
+        fruits.replaceAll(function);
+        System.out.println(fruits);
+    }
+
+Which statement on line 1 enables this code fragment to compile?
+A . Func tion func on = String::toUpperCase;
+B . UnaryOperator func on = s > s.toUpperCase();
+C . UnaryOperator<String> func on = String::toUpperCase;
+D . Func on<String> func on = m > m.toUpperCase();
+
+CORRECT ANSWER IS C.
+
+93.
+
+for 95.
