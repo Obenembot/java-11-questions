@@ -2724,4 +2724,127 @@ D . Hello myH = new Hello();
 CORRECT ANSWER IS B. 
 
 98.
-for 101
+Which two are successful examples of autoboxing? (Choose two.)
+A . String a = "A";
+B . Integer e = 5;
+C . Float g = Float.valueOf(null);
+D . Double d = 4;
+E . Long c = 23L;
+F . Float f = 6.0;
+
+CORRECT ANSWER IS B AND E. 
+
+99.
+Which code fragment compiles?
+
+A.
+   Comparator comparator4 = new Comparator<?>(){
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1.compareTo(o2);
+            }
+        };
+B.
+ Comparator<> comparator2 = new Comparator<Integer>(){
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1.compareTo(o2);
+            }
+        };
+C.
+ Comparator<Integer> comparator3 = new Comparator<>(){
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1.compareTo(o2);
+            }
+        };
+
+D.
+ var comparator6 = new Comparator<>(){
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1.compareTo(o2);
+            }
+        };
+CORRECT ANSWER IS C.
+
+100.
+Given:
+
+    public static void main(String[] args) {
+        var data = new ArrayList<>();
+        data.add("Peter");
+        data.add(30);
+        data.add(40);
+        data.add("Market Road");
+        data.set(1, 25);
+        data.remove(2);
+        data.set(2, 1000L);
+        System.out.print(data);
+    }
+
+What is the output?
+A . [Market Road, 1000]
+B . [Peter, 30, Market Road]
+C . [Peter, 25, 1000]
+D . An excepti on is thrown at runtime.
+
+CORRECT ANSWER IS C.
+
+101.
+GIVEN:
+var fruits = List.of(''apple'', ''orange'', ''banana'', ''lemon'');
+You want to examine the first element that contains the character n. Which statement will accomplish
+this?
+A . String result = fruits.stream().filter(f > f.contains(''n'')).findAny();
+B . fruits.stream().filter(f > f.contains(''n'')).forEachOrdered(System.out::print);
+C . Op onal<String> result = fruits.stream().filter(f > f.contains ("n")).findFirst();
+D . Op onal<String> result = fruits.stream().anyMatch(f > f.contains(''n''));
+
+CORRECT ANSWER IS C.
+
+102.
+GIVEN:
+
+public class Main {
+    public static void main(String[] args) {
+        var numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        Function<Integer, Integer> f = n -> n * 2;
+        StringBuilder sb = new StringBuilder();
+        for (int a : numbers) {
+            sb.append(f.apply(a));
+            sb.append(" ");
+        }
+        System.out.println(sb.toString());
+    }
+}
+
+Which statement on line 1 enables this code to compile?
+A . Func on<Integer, Integer> f = n > n * 2;
+B . Func on<Integer> f = n > n * 2;
+C . Func on<int> f = n > n * 2;
+D . Func on<int, int> f = n > n * 2;
+E . Func on f = n > n * 2;
+
+CORRECT ANSWER IS A.
+
+103.
+Assuming the Widget class has a getPrice method, this code does not compile:
+
+    public static void main(String[] args) {
+        List<Widget> widgets =
+                List.of(new Widget("Basic Widget", 19.55),// LINE 1
+                new Widget("Enhanced Widget", 35.55),
+                new Widget("Luxury Edition Widget", 55.55));
+        Stream  widgetStream = widgets.stream(); // LINE 2
+        widgetStream.filter((Widget a) -> a.getPrice() > 20.00) // LINE 3
+.forEach(System.out::println);
+    }
+
+Which two statements, independently, would allow this code to compile? (Choose two.)
+A . Replace line 3 with widgetStream.filter(a > ((Widget)a).getPrice() > 20.00).
+B . Replace line 1 with List<Widget> widgetStream = widgets.stream();.
+C . Replace line 3 with widgetStream.filter((Widget a) > a.getPrice() > 20.00).
+D . Replace line 2 with Stream<Widget> widgetStream = widgets.stream();
+
+CORRECT ANSWER IS  C, D.
