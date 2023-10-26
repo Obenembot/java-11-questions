@@ -2943,3 +2943,137 @@ C . inserts one row (101, 'SMITH', 'HR')
 D . throws a SQLExcep on
 
 CORRECT ANSWER IS D.
+
+108.
+GIVEN:
+
+public class Main {
+   private static class Greet {
+        private void print() {
+            System.out.println("Hello world");
+        }
+    }
+
+    public static void main(String[] args) {
+        Main.Greet i = new Greet();
+        i.print();
+    }
+}
+
+What is the result?
+A . The compila on fails at line 9.
+B . The compila on fails at line 2.
+C . Hello World
+D . The compila on fails at line 8.
+
+CORRECT ANSWER IS C.
+
+109.
+GIVEN:
+
+public class Main {
+
+    public static void main(String[] args) {
+        Optional<String> value = createValue();
+        String str = value.orElse("Duke");
+        System.out.println(str);
+    }
+
+    private static Optional<String> createValue() {
+        String s = null;
+        //System.out.println(s);
+        return Optional.ofNullable(s);
+    }
+}
+
+What is the output?
+A . null
+B . A NoSuchElementExcep on is thrown at run Time.
+C . Duke
+D . A NullPointerExcep on is thrown at runTi me.
+
+CORRECT ANSWER IS C.
+
+110.
+Which code fragment does a service use to load the service provider with a Print interface?
+A . private Print print = com.service.Provider.getInstance();
+B . private java.uti l.ServiceLoader<Print> loader = ServiceLoader.load (Print.class);
+C . private java.uti l.ServiceLoader<Print> loader = new java.uti l.ServiceLoader<> ();
+D . private Print print = new com.service.Provider.PrintImpl();
+
+CORRECT ANSWER IS B.
+
+110.
+GIVEN:
+
+public class Main {
+
+    public static void main(String[] args) {
+        Thread t1 = new Thread(new MyThread());
+        Thread t2 = new Thread(new MyThread());
+        Thread t3 = new Thread(new MyThread());
+
+        t1.start();
+        t2.run();
+        t3.start();
+        t2.start();
+        t1.start();
+    }
+}
+
+class MyThread implements Runnable {
+    public void run() {
+        System.out.println("Running. " + Thread.currentThread().getName());
+    }
+}
+
+Which one is correct?
+A . An IllegalThreadStateExcep on is thrown at run  me.
+B . Three threads are created.
+C . The compila on fails.
+D . Four threads are created.
+
+CORRECT ANSWER IS A.
+
+111.
+GIVEN:
+interface TestInterface {
+    default void samplingProbeProcedure() {
+        probeProcedure();
+        System.out.println("Collect Sample");
+        System.out.println("Leave Asteriod");
+        System.out.println("Dock with main Craft");
+    }
+
+    default void explosionProbeProcedure() {
+        probeProcedure();
+        System.out.println("Explode");
+    }
+}
+
+Eliminate code duplica on.
+Keep constant the number of methods other classes may implement from this interface.
+Which method can be added to meet these requirements?
+
+A.      private void probeProcedure() {
+        System.out.println("Luanch Probe");
+        System.out.println("Land as Asteroid");
+    }
+
+B.      private default void probeProcedure() {
+        System.out.println("Luanch Probe");
+        System.out.println("Land as Asteroid");
+    }
+
+C.      private static void probeProcedure() {
+        System.out.println("Luanch Probe");
+        System.out.println("Land as Asteroid");
+    }
+
+D.      default void probeProcedure() {
+        System.out.println("Luanch Probe");
+        System.out.println("Land as Asteroid");
+    }
+
+CORRECT ANSWER IS A.
+
