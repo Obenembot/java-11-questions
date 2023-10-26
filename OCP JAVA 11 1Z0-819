@@ -2848,3 +2848,98 @@ C . Replace line 3 with widgetStream.filter((Widget a) > a.getPrice() > 20.00).
 D . Replace line 2 with Stream<Widget> widgetStream = widgets.stream();
 
 CORRECT ANSWER IS  C, D.
+
+104.
+Which two are successful examples of autoboxing? (Choose two.)
+A . String a = ''A'';
+B . Integer e = 5;
+C . Float g = Float.valueOf(null);
+D . Double d = 4;
+E . Long c = 23L;
+F . Float f = 6.0;
+
+CORRECT ANSWER IS B AND E.
+//Autoboxing is the automatic conversion of a primitive data type into its corresponding wrapper class object.
+
+105.
+Which code fragment compiles?
+
+A.  Comparator<Integer> comparator1 = new Comparator<>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return 0;
+            }
+        };
+
+ B.       Comparator<> comparator2 = new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return 0;
+            }
+        };
+ C.      var comparator3 = new Comparator<>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return 0;
+            }
+        };
+D.        Comparator comparator4 = new Comparator<?>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return 0;
+            }
+        };
+
+CORRECT ANSWER IS A.
+
+106.
+GIVEN:
+Assume ds is a DataSource and the EMP table is defined appropriately.
+
+    public static void main(String[] args) {
+        try (Connection conn = DriverManager
+                .getConnection("jdbc:mysql://localhost:3306/BANK_DB", "root", "password");
+             PreparedStatement ps = conn.prepareStatement("INSERT INTO EMP VALUES(?,?,?)")) {
+            ps.setObject(1, 103, JDBCType.INTEGER);
+            ps.setObject(2, "SMITH", JDBCType.VARCHAR);
+            ps.setObject(3, "HR", JDBCType.VARCHAR);
+            ps.executeUpdate();
+            ps.setInt(1, 102);
+            ps.setString(2, "JONES");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+What does executing this code fragment do?
+A . inserts two rows (101, 'SMITH', 'HR') and (102, 'JONES', NULL)
+B . inserts two rows (101, 'SMITH', 'HR') and (102, 'JONES', 'HR')
+C . inserts one row (101, 'SMITH', 'HR')
+D . throws a SQLExcep on
+
+CORRECT ANSWER IS B.
+
+107.
+GIVEN:
+Assume ds is a DataSource and the EMP table is defined appropriately.
+
+    public static void main(String[] args) {
+        try (Connection conn = DriverManager
+                .getConnection("jdbc:mysql://localhost:3306/BANK_DB", "root", "pvi@2019");
+             PreparedStatement ps = conn.prepareStatement("INSERT INTO EMP VALUES(?,?,?)")) {
+            ps.setInt(1, 102);
+            ps.setString(2, "JONES");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+What does executing  this code fragment do?
+A . inserts two rows (101, 'SMITH', 'HR') and (102, 'JONES', NULL)
+B . inserts two rows (101, 'SMITH', 'HR') and (102, 'JONES', 'HR')
+C . inserts one row (101, 'SMITH', 'HR')
+D . throws a SQLExcep on
+
+CORRECT ANSWER IS D.
