@@ -3077,3 +3077,274 @@ D.      default void probeProcedure() {
 
 CORRECT ANSWER IS A.
 
+112.
+Given these two classes:
+
+class Resource {
+    public Worker owner;
+
+    public synchronized boolean claim(Worker worker) {
+        if (owner == null) {
+            owner = worker;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public synchronized void release() {
+        owner = null;
+    }
+}
+
+public class Worker {
+    public synchronized void work(Resource... resources) {
+        for (int i = 0; i < 10; i++) {
+            System.out.println(i);
+            while (!resources[0].claim(this)) {
+                System.out.println("resources[0]: " + i);
+            }
+
+            while (!resources[1].claim(this)) {
+                System.out.println("resources[1]: " + i);
+            }
+            resources[1].release();
+            resources[0].release();
+        }
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Worker worker1 = new Worker();
+        Worker worker2 = new Worker();
+        Resource resource1 = new Resource();
+        Resource resource2 = new Resource();
+
+        new Thread(() -> {
+            worker1.work(resource1, resource2);
+        }).start();
+
+        new Thread(() -> {
+            worker2.work(resource1, resource2);
+        }).start();
+    }
+}
+Which describes the fragment?
+A . It throws IllegalMonitorStateExcepon.
+B . It is subject to deadlock.
+C . It is subject to livelock.
+D . The code does not compile.
+
+CORRECT ANSWER IS B.
+
+113.
+GIVEN:
+enum Alphabet {
+    A, B, C;
+//line 1
+}
+Examine this code:
+System.out.println(Alphabet.getFirstLe er());
+What code should be wri en at line 3 to make this code print A?
+A . final String getFirstLe er() { return A.toString(); }
+B . sta c String getFirstLe er() { return Alphabet.values()[1].toString(); }
+C . sta c String getFirstLe er() { return A.toString(); }
+D . String getFirstLe er() { return A.toString(); }
+
+CORRECT ANSWER IS C.
+
+114.
+consideration is based on java 11
+Which interfaces can be used in lambda expressions? 
+
+A. interface MyInterface1 {
+    int method();
+
+    private void pMethod() {
+    }
+}
+
+B. interface MyInterface2 {
+    static void sMethod() {
+
+    }
+
+    boolean equals();
+
+}
+
+C. interface MyInterface3 {
+    void method();
+
+    void method(String method);
+}
+
+D. interface MyInterface4 {
+    static void dMethod() {
+
+    }
+
+    void method();
+}
+
+E. interface MyInterface5 {
+    static void sMethod();
+    void method(String method);
+}
+
+Which interfaces can be used in lambda expressions? 
+A . MyInterface1
+B . MyInterface3
+C . MyInterface5
+D . MyInterface2
+E . MyInterface4
+
+CORRECT ANSWER IS A, B, D
+
+115. 
+GIVEN:
+
+ @interface Resource {
+    String name();
+    int priority() default 0;
+}
+
+//LINE 1
+public class Student {
+}
+
+
+Which two annotations may be applied at LINE 1 in the code fragment? (Choose two.)
+A . @Resource(priority=100)
+B . @Resource(priority=0)
+C . @Resource(name="Customer1")
+D . @Resource(name="Customer1", priority=100)
+E . @Resource
+
+CORRECT ANSWER IS C,D.
+
+116.
+Given the code fragment:
+Path currentFile = Paths.get(''/scratch/exam/temp.txt'');
+Path outputFile = Paths get(''/scratch/exam/new.txt'');
+Path directory = Paths.get(''/scratch/'');
+Files.copy(currentFile, outputFile);
+Files.copy(outputFile, directory);
+Files.delete (outputFile);
+The /scratch/exam/temp.txt file exists. The /scratch/exam/new.txt and /scratch/new.txt files do not
+exist.
+What is the result?
+A . /scratch/exam/new.txt and /scratch/new.txt are deleted.
+B . The program throws a FileaAlreadyExistsExcep on.
+C . The program throws a NoSuchFileExcep on.
+D . A copy of /scratch/exam/new.txt exists in the /scratch directory and /scratch/exam/new.txt is
+deleted.
+
+CORRECT ANSWER IS D.
+
+117.
+What makes Java dynamic?
+A . At run me, classes are loaded as needed, and new code modules can be loaded on demand.
+Answer: C, E
+Ques on: 120
+Answer: C
+Ques on: 121
+B . The run me can process machine language sources as well as executables from diﬀerent language
+compilers.
+C . The Java compiler uses reflection to test if class methods are supported by resources of a target
+platf orm.
+D . The Java compiler preprocesses classes to run on specific target plat forms.
+
+CORRECT ANSWER IS A.
+
+118.
+GIVEN:
+
+public class Main {
+    public static void main(String[] args) {
+        for (var i = 0; i < 10; i++) {
+            switch (i % 5) {
+                case 2:
+                    i *= i; // 4
+                    break;
+                case 3:
+                    i++;
+                    break;
+                case 1:
+                case 4:
+                    i++;
+                    continue;
+                default:
+            }
+
+            System.out.print(i + " ");
+            i++; 
+        }
+    }
+}
+
+What is the result?
+A . nothing
+B . 0
+C . 10
+D . 0 4 9
+
+CORRECT ANSWER IS D.
+
+119.
+GIVEN:
+
+public class Main {
+
+    public static void greet(String... args) {
+        System.out.println("Hello");
+        for (String arg : args) {
+            System.out.println(arg);
+        }
+    }
+
+    public static void main(String[] args) {
+        Main c = null;
+        c.greet();
+    }
+}
+
+What is the result?
+A . NullPointerExcep on is thrown at line 4.
+B . NullPointerExcep on is thrown at line 10.
+C . A compilati on error occurs.
+D . Hello
+
+CORRECT ANSWER IS D.
+
+120.
+GIVEN:
+
+public class Main {
+
+    public  void greet(String... args) {
+        System.out.println("Hello");
+        for (String arg : args) {
+            System.out.println(arg);
+        }
+    }
+
+    public static void main(String[] args) {
+        Main c = null;
+        c.greet(); // line
+    }
+}
+
+What is the result?
+A . NullPointerExcep on is thrown.
+B . Hello and NullPointerExcep on is thrown.
+C . A compilati on error occurs.
+D . Hello
+
+CORRECT ANSWER IS A.
+
+
+121.
+
+for 124.
