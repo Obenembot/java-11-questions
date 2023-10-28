@@ -4042,4 +4042,269 @@ E . 666
 CORRECT ANSWER IS D.
 
 142.
-for 141
+GIVEN:
+
+public abstract class Animal {
+    protected abstract void walk();
+}
+
+public  abstract class Human extends Animal {
+
+//LINE 1
+}
+
+Which two lines inserted in line 1 will allow this code to compile? (Choose two.)
+A . protected void walk(){}
+B . void walk(){}
+C . abstract void walk();
+D . private void walk(){}
+E . public abstract void walk();
+
+CORRECT ANSWER IS A AND E.
+
+143.
+GIVEN:
+
+public class X {
+
+    private Collection collection;
+
+    public void set(Collection collection) {
+        this.collection = collection;
+    }
+
+    public Collection getCollection() {
+        return collection;
+    }
+}
+
+class Y extends X {
+
+    public void set(Map<String, String> map) {
+        super.set(map);
+    }
+
+    public static void main(String[] args) {
+        Y y = new Y();
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("1", "One");
+        map.put("2", "Two");
+        map.put("3", "Three");
+        y.set(map);
+        y.getCollection().forEach(System.out::println);
+    }
+}
+
+Which two lines can replace line 1 so that the Y class compiles? (Choose two.)
+A . map.forEach((k, v) -> set(v)));
+B . set(map.values());
+C . super.set(List<String> map)
+D . super.set(map.values());
+E . set(map)
+
+CORRECT ANSWER IS B AND D.
+
+144.
+GIVEN:
+class Main {
+    private int sum;
+
+    public int compute() {
+        int x = 0;
+        while (x < 3) {
+            sum += x++;
+        }
+        return sum; // 6
+    }
+
+    public static void main(String[] args) {
+        Main t = new Main();
+        int sum = t.compute();
+        sum = t.compute();
+        t.compute();
+        System.out.println(sum);
+
+    }
+}
+
+What is the result?
+A . 9
+B . An excep on is thrown at run me.
+C . 3
+D . 6
+
+CORRECT ANSWER IS D.
+
+145.
+GIVEN:
+
+class Main {
+    private int sum;
+
+    public int compute() {
+        int x = 0;
+        while (x < 3) {
+            sum += x++;
+        }
+        return sum; // 6
+    }
+
+    public static void main(String[] args) {
+        Main t = new Main();
+        int sum = t.compute();
+        sum += t.compute();
+        t.compute();
+        System.out.println(sum);
+
+    }
+}
+
+What is the result?
+A . 9
+B . An excep on is thrown at run me.
+C . 3
+D . 6
+
+CORRECT ANSWER IS A.
+
+146.
+GIVEN:
+
+public class Person {
+    private String name;
+
+    public void setName(String name) {
+        String title = "Dr. ";
+        System.out.println(title);
+        name = title + name;
+    }
+
+    public String toString() {
+        return name;
+    }
+}
+
+
+class Test {
+    public static void main(String[] args) {
+        Person p = new Person();
+        p.setName("Who");
+        System.out.println(p);
+    }
+}
+
+What is the result?
+A . Dr. Who
+B . Dr. Null
+C . An excep on is thrown at run me.
+D . null
+
+CORRECT ANSWER IS D.
+
+147.
+GIVEN:
+
+public class Person {
+    private String name;
+
+    public void setName(String name) {
+        String title = "Dr. ";
+        System.out.println(title);
+        this.name = title + name;
+    }
+
+    public String toString() {
+        return name;
+    }
+}
+
+
+class Test {
+    public static void main(String[] args) {
+        Person p = new Person();
+        p.setName("Who");
+        System.out.println(p);
+    }
+}
+
+What is the result?
+A . Dr. Who
+B . Dr. Null
+C . An excep on is thrown at run me.
+D . null
+
+CORRECT ANSWER IS A.
+
+148.
+Which command line runs the main class com.acme.Main from the module com.example?
+A . java --module-path mods com.example/com.acme.Main
+B . java --classpath com.example.jar com.acme.Main
+C . java --module-path mods -m com.example/com.acme.Main
+D . java -classpath com.example.jar --m com.example/com.acme.Main
+
+CORRECT ANSWER IS C.
+
+149.
+GIVEN:
+
+ public static void main(String[] args) {
+        List<Integer> even = List.of();
+        even.add(0, 2);
+        even.add(0,-2);
+        even.add(0,-3);
+        System.out.println(even);
+    }
+
+What is the output?
+A . The compilati on fails.
+B . [-1, -2, -3]
+C . [-3, -2, -1]
+D . A run me excep tion is thrown.
+
+CORRECT ANSWER IS D.
+
+150.
+GIVEN:
+
+ public static void main(String[] args) {
+        List<Integer> even = List.of();
+        even.add(0, 2);
+        even.add(0,-2);
+        even.add(0,-3);
+        System.out.println(even);
+    }
+
+What is the output?
+A . The compilati on fails.
+B . [-1, 2, -3]
+C . [-3, -2, 2]
+D . A run me excep tion is thrown.
+
+CORRECT ANSWER IS C.
+
+151.
+Which statement about access modifiers is correct?
+A . An instance variable can be declared with the sta c modifier.
+B . A local variable can be declared with the final modifier.
+C . An abstract method can be declared with the private modifier.
+D . An inner class cannot be declared with the public modifier.
+E . An interface can be declared with the protected modifier.
+
+CORRECT ANSWER IS B.
+
+152.
+GIVEN:
+
+        List<String> list = null;
+        list.forEach( x -> {System.out.println(x);});
+
+What is the type of x?
+A . char
+B . List<Character>
+C . String
+D . List<String>
+
+CORRECT ANSWER IS C.
+
+153. 
+for 155.
