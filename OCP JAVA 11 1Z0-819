@@ -3347,4 +3347,315 @@ CORRECT ANSWER IS A.
 
 121.
 
-for 124.
+GIVEN:
+class Super {
+    static String greeting() {
+        return "Good Night";
+    }
+
+    String name() {
+        return "Harry";
+    }
+}
+
+class Sub extends Super {
+    static String greeting() {
+        return "Good Morning";
+    }
+
+    String name() {
+        return "Potter";
+    }
+}
+
+
+class Test {
+    public static void main(String[] args) {
+        Super s = new Super();
+        System.out.println(s.greeting() + ", " + s.name());
+    }
+}
+
+What is the result?
+A . Good Morning, Pott er
+B . Good Night, Po tter
+C . Good Morning, Harry
+D . Good Night, Harry
+
+CORRECT ANSWER IS C. 
+Note We can not override static method, so the method belong to the class. Polymorphysm
+
+122.
+
+GIVEN:
+class Super {
+    static String greeting() {
+        return "Good Night";
+    }
+
+    String name() {
+        return "Harry";
+    }
+}
+
+class Sub extends Super {
+    static String greeting() {
+        return "Good Morning";
+    }
+
+    String name() {
+        return "Potter";
+    }
+}
+
+
+class Test {
+    public static void main(String[] args) {
+        Super s = new Super();
+        System.out.println(s.greeting() + ", " + s.name());
+    }
+}
+
+What is the result?
+A . Good Morning, Pott er
+B . Good Night, Po tter
+C . Good Morning, Harry
+D . Good Night, Harry
+
+CORRECT ANSWER IS B. 
+Note We can not override static method, so the method belong to the class. Polymorphysm
+
+123.
+GIVEN:
+
+public class Person {
+
+    private String name;
+
+    public Person(String name) {
+        this.name = name;
+
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+}
+
+class Tester {
+    public static void main(String[] args) {
+        Person p = null;
+        checkPerson(p);
+        System.out.println(p);
+        p = new Person("Mary");
+        checkPerson(p);
+        System.out.println(p);
+
+    }
+
+    public static Person checkPerson(Person p) {
+
+        if (p == null) {
+            p = new Person("Joe");
+
+        } else {
+            p = null;
+        }
+        return p;
+    }
+}
+
+What is the result?
+A . JoeMarry
+B . Joenull
+C . nullnull
+D . nullMary
+
+CORRECT ANSWER IS D. 
+
+124.
+GIVEN:
+
+public class Person {
+
+    private String name;
+
+    public Person(String name) {
+        this.name = name;
+
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+}
+
+class Tester {
+    public static void main(String[] args) {
+        Person p = null;
+       p = checkPerson(p);
+        System.out.println(p);
+        p = new Person("Mary");
+        checkPerson(p);
+        System.out.println(p);
+
+    }
+
+    public static Person checkPerson(Person p) {
+
+        if (p == null) {
+            p = new Person("Joe");
+
+        } else {
+            p = null;
+        }
+        return p;
+    }
+}
+
+What is the result?
+A . JoeMarry
+B . Joenull
+C . nullnull
+D . nullMary
+
+CORRECT ANSWER IS A. 
+
+
+125.
+
+   module java.se{
+        requires transitive java.sql;
+        }
+        What does the transi ve modifier mean?
+A . Only a module that requires the java.se module is permi ed to require the java.sql module.
+B . Any module that requires the java.se module does not need to require the java.sql module.
+C . Any module that a empts to require the java.se module actually requires the java.sql module
+instead.
+D . Any module that requires the java.sql module does not need to require the java.se module.
+
+CORRECT ANSWER IS B.
+
+126.
+GIVEN:
+
+abstract class Automobile {
+    abstract void wheels();
+}
+
+class Car extends Automobile {
+    void wheels(int a) { //line 1
+        System.out.println(4); //line 2
+    }
+
+    public static void main(String[] args) {
+        Automobile ob = new Car(); //line 3
+        ob.wheels(); //line 4
+    }
+}
+What must you do so that the code prints 4?
+A . Remove the parameter from wheels method in line 1.
+B . Add @Override annotati on in line 2.
+C . Replace the code in line 2 with Car ob = new Car();
+D . Remove abstract keyword in line 1.
+
+CORRECT ANSWER IS A.
+
+
+127.
+GIVEN:
+
+class Foo {
+    public void foo(Collection collection) {
+        System.out.println("Bonjour le monde!");
+    }
+}
+
+class Bar extends Foo {
+    
+    public void foo(Collection collection) {
+        System.out.println("Hello world!");
+    }
+
+    public void foo(List arg) {
+        System.out.println("Hola Mundo!");
+    }
+
+    public static void main(String[] args) {
+
+        Foo f1 = new Foo();
+        Foo f2 = new Bar();
+        Bar b1 = new Bar();
+        List<String> li = new ArrayList<>();
+
+        b1.foo(li);
+        f1.foo(li);
+        f2.foo(li);
+    }
+}
+
+
+Which three are correct? (Choose three.)
+A . b1.foo(li) prints Hello world!
+B . f1.foo(li) prints Bonjour le monde!
+C . f1.foo(li) prints Hello world!
+D . f1.foo(li) prints Hola Mundo!
+E . b1.foo(li) prints Bonjour le monde!
+F . f2.foo(li) prints Hola Mundo!
+G . f2.foo(li) prints Bonjour le monde!
+H . b1.foo(li) prints Hola Mundo!
+I . f2.foo(li) prints Hello world!
+
+CORRECT ANSWER IS H,B,I. 
+ALWAYS TAKE NOTE OF THE OBJECTS BEEN CREATED AND IF POLYMORPHYS ARE BEING USED.
+
+128.
+GIVEN:
+
+class Fox implements Forest, Town {
+
+
+    public static void main(String[] args) {
+        Fox fo = new Fox();
+        fo.inhabit();
+    }
+
+    
+}
+
+interface Habtat {
+
+    abstract void inhabit();
+}
+
+interface Town extends Habtat {
+
+    default void inhabit() {
+        System.out.println("Town");
+    }
+}
+
+interface Forest extends Habtat {
+
+    default void inhabit() {
+        System.out.println("Forest");
+    }
+}
+
+
+Which statement is true about the Fox class?
+A . Fox class does not have to override inhabit method, so long as it does not try to call it.
+B . Fox class does not have to override the inhabit method if Forest and Town provide compa ble
+implementa tions.
+C . Fox class must implement either Forest or Town interfaces, but not both.
+D . The inhabit method implementa tion from the first interface that Fox implements will take
+precedence.
+E . Fox class must provide implementati on for the inhabit method.
+
+CORRECT ANSWER IS D.
+
+129.
+
+for 131.
