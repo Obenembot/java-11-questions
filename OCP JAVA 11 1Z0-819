@@ -3646,16 +3646,400 @@ interface Forest extends Habtat {
 
 
 Which statement is true about the Fox class?
-A . Fox class does not have to override inhabit method, so long as it does not try to call it.
-B . Fox class does not have to override the inhabit method if Forest and Town provide compa ble
-implementa tions.
+A . Fox class does not have to override inhibit method, so long as it does not try to call it.
+B . Fox class does not have to override the inhabit method if Forest and Town provide compa ti ble implementations.
 C . Fox class must implement either Forest or Town interfaces, but not both.
-D . The inhabit method implementa tion from the first interface that Fox implements will take
+D . The inhabit method implementation from the first interface that Fox implements will take
 precedence.
-E . Fox class must provide implementati on for the inhabit method.
+E . Fox class must provide an implementation for the inhabit method.
 
 CORRECT ANSWER IS D.
 
 129.
+public class Main {
 
-for 131.
+    public static void checkConfiguration(String fileName) {
+
+        File file = new File(fileName);
+        if (!file.exists()) {
+            throw new Error("Configuration file Error. " + fileName + " is missing");
+        }
+    }
+
+    public static void main(String[] args) {
+        checkConfiguration("HELLO.txt");
+        System.out.println("Configuration Okay");
+    }
+}
+
+If file 'HELLO.txt' is not found, what is the result?
+A . Configuration Okay
+B . The compilati on fails
+C . Excep tion in thread 'main' java.lang.Error:Fatal Error: Configura on File, HELLO.txt, is missing.
+D . nothing
+
+CORRECT ANSWER IS A.
+
+130.
+Given:
+
+class DNASynth {
+    int aCount;
+    int tCount;
+    int cCount;
+    int gCount;
+
+    int getACount(int aCount) {
+        return aCount;
+    }
+
+    int getTCount(int tCount) {
+        return this.tCount;
+    }
+
+    int getCCount() {
+        return getTotalCount() - this.aCount - getTCount(0) - gCount;
+    }
+
+    int getGCount() {
+        return getGCount();
+    }
+
+    int getTotalCount() {
+        return aCount + getTCount(0) + this.cCount + this.gCount;
+    }
+}
+Which two methods facilitate valid ways to read instance fields? (Choose two.)
+A . getTCount
+B . getACount
+C . getTotalCount
+D . getCCount
+E . getGCount
+
+CORRECT ANSWER IS A,C,D.
+
+131
+GIVEN:
+
+class Person {
+
+    private String name = "Joe Bloggs";
+
+    public Person(String name) {
+        this.name = name;
+    }
+
+    public String toString() {
+        return name;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person p1 = new Person(); //line 1
+        System.out.println(p1);
+    }
+}
+
+What is the result?
+A . null
+B . Joe Bloggs
+C . The compila tion fails due to an error in line 1.
+D . p1
+
+CORRECT ANSWER IS C.
+
+132
+GIVEN:
+
+class Person {
+
+    private String name = "Joe Bloggs";
+
+    public Person() {
+    }
+
+    public String toString() {
+        return name;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person p1 = new Person(); //line 1
+        System.out.println(p1);
+    }
+}
+
+What is the result?
+A . null
+B . Joe Bloggs
+C . The compila tion fails due to an error in line 1.
+D . p1
+
+CORRECT ANSWER IS B.
+
+133.
+GIVEN:
+
+class Foo {
+
+    public void foo(Collection arg) {
+        System.out.println("Bonjour le monde!");
+    }
+}
+
+class Bar extends Foo {
+    public void foo(Collection arg) {
+        System.out.println("Hello world!");
+    }
+
+    public void foo(List arg) {
+        System.out.println("Hola Mundo!");
+    }
+
+    public static void main(String[] args) {
+
+        Foo f1 = new Foo();
+        Foo f2 = new Bar();
+        Bar b1 = new Bar();
+        Collection<String> c = new ArrayList<>();
+        b1.foo(c); // D
+        f2.foo(c); // H
+        f1.foo(c); // I
+    }
+}
+Which three are true? (Choose three.)
+
+A . b1.foo(c) prints Bonjour le monde!
+B . f1.foo(c) prints Hello world!
+C . f1.foo(c) prints Ol Mundo!
+D . b1.foo(c) prints Hello world!
+E . f2.foo(c) prints Ol Mundo!
+F . b1.foo(c) prints Ol Mundo!
+G . f2.foo(c) prints Bonjour le monde!
+H . f2.foo(c) prints Hello world!
+I . f1.foo(c) prints Bonjour le monde!
+
+CORRECT ANSWER IS D,H,I.
+
+134.
+GIVEN:
+
+public class Main {
+    public static void main(String[] args) {
+        Integer s = 0;
+        if (Double.parseDouble("11.00f") > 11) {
+            s += 1;
+        }
+
+        if (1_7 == Integer.valueOf("17")) {
+            s += 2;
+        }
+
+        if (1024 > 1023L) {
+            s += 3;
+        }
+        System.out.println(s);
+    }
+}
+
+What is the result?
+A . 23
+B . 12
+C . 123
+D . 13
+E . 5
+CORRECT ANSWER IS E.
+
+135.
+GIVEN:
+
+public class Main {
+    public static void main(String[] args) {
+        String s = "";
+        if (Double.parseDouble("11.00f") > 11) {
+            s += 1;
+        }
+
+        if (1_7 == Integer.valueOf("17")) {
+            s += 2;
+        }
+
+        if (1024 > 1023L) {
+            s += 3;
+        }
+        System.out.println(s);
+    }
+}
+
+What is the result?
+A . 23
+B . 12
+C . 123
+D . 13
+E . 5
+CORRECT ANSWER IS A.
+
+135.
+GIVEN:
+
+public class Main {
+    public static void main(String[] args) {
+        Integer s = null;
+        if (Double.parseDouble("11.00f") > 11) {
+            s += 1;
+        }
+
+        if (1_7 == Integer.valueOf("17")) {
+            s += 2;
+        }
+
+        if (1024 > 1023L) {
+            s += 3;
+        }
+        System.out.println(s);
+    }
+}
+
+What is the result?
+A . 23
+B . 12
+C . 123
+D . 13
+E . 5
+F . Runtime exception
+CORRECT ANSWER IS F.
+
+136.
+GIVEN:
+
+public class Main {
+    public static void main(String[] args) {
+        String s = null;
+        if (Double.parseDouble("11.00f") > 11) {
+            s += 1;
+        }
+
+        if (1_7 == Integer.valueOf("17")) {
+            s += 2;
+        }
+
+        if (1024 > 1023L) {
+            s += 3;
+        }
+        System.out.println(s);
+    }
+}
+
+What is the result?
+A . null23
+B . 23
+C . 123
+D . 13
+E . 5
+F . Runtime exception
+CORRECT ANSWER IS A.
+
+137.
+GIVEN:
+public class Main {
+    public static void main(String[] args) {
+        try {
+            doA();
+        }// Line 1
+    }
+
+    private static void doA() throws FileNotFoundException, IndexOutOfBoundsException {
+        if (false) {
+            throw new FileNotFoundException();
+
+        } else {
+            throw new IndexOutOfBoundsException();
+        }
+    }
+}
+What must be added in line 1 to compile this class?
+A . catch(IOExcep on e) { }
+B . catch(FileNotFoundExcep on | IndexOutOfBoundsExcep on e) { }
+C . catch(FileNotFoundExcep on | IOExcep on e) { }
+D . catch(IndexOutOfBoundsExcep on e) { }catch(FileNotFoundExcep on e) { }
+E . catch(FileNotFoundExcep on e) { }catch(IndexOutOfBoundsExcep on e) { }
+
+CORRECT ANSWER IS A.
+
+138.
+executed with this command:
+java Main 2 2 2
+
+    public static void main(String[] args) {
+        int i = 1;
+        for (String s : args) {
+            int value  = Integer.parseInt(s);
+            System.out.println(" " + s + " " + (value + i));
+        }
+    }
+What is the output of this class?
+A . The compila on fails.
+B . 2 3  2 3  2 3 
+C . A java.lang.ArrayIndexOutOfBoundsExcep on is thrown.
+D . 1) one
+E . nothing
+
+CORRECT ANSWER IS B.
+
+139.
+GIVEN:
+   public static void main(String[] args) {
+        byte x = 7, y = 6;
+        float z = Math.round((float) x / y * 100) / (float) 100;
+        System.out.println(z);
+    }
+
+Which expression when added at line 1 will produce the output of 1.17?
+A . float z = (float)(Math.round((float)x/y*100)/100);
+B . float z = Math.round((int)(x/y),2);
+C . float z = Math.round((float)x/y,2);
+D . float z = Math.round((float)x/y*100)/(float)100;
+
+CORRECT ANSWER IS D.
+
+140.
+GIVEN:
+
+    public static void main(String[] args) {
+        int x = 4;
+        int y = 2;
+        System.out.println(x + y + "(x+y)" + x + y);
+    }
+
+What is the result?
+A . An excep tion is thrown at run time.
+B . 42(x+y)42
+C . 42(x+y)6
+D . 6(x+y)42
+E . 6(x+y)6
+
+CORRECT ANSWER IS D.
+
+141.
+GIVEN:
+
+      public static void main(String[] args) {
+        int x = 4;
+        int y = 2;
+        System.out.println(x + y + "" + (x + y) + "" + x + y);
+    }
+
+
+What is the result?
+A . An excep tion is thrown at run time.
+B . 42642
+C . 4266
+D . 6642
+E . 666
+
+CORRECT ANSWER IS D.
+
+142.
+for 141
