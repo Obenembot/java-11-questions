@@ -4364,10 +4364,10 @@ CORRECT ANSWER IS B.
 
 156.
 Which describes an aspect of Java that contributes to high performance?
-A . Java priorizes garbage collecon.
-B . Java has a library of built-in funcons that can be used to enable pipeline burst execuon.
-C . Java monitors and opmizes code that is frequently executed.
-D . Java automacally parallelizes code execuon.
+A . Java prioritizes garbage collection.
+B . Java has a library of built-in functions that can be used to enable pipeline burst execution.
+C . Java monitors and optimizes code that is frequently executed.
+D . Java automatically parallelizes code execution.
 
 CORRECT ANSWER IS C.
 
@@ -4375,8 +4375,8 @@ CORRECT ANSWER IS C.
 GIVEN: 
 public void foo() throws FooExcepti on {}
 
-and omi ng the throws FooExcepti on clause results in a compila on error.
-Which statement is true about FooExcep on?
+and omi ng the throws FooExcepti on clause results in a compile on error.
+Which statement is true about FooExcepti on?
 A . FooExcep on is a subclass of Run meError.
 B . FooExcep on is unchecked.
 C . The body of foo can only throw FooExcep on.
@@ -4385,5 +4385,202 @@ D . The body of foo can throw FooExcep on or one of its subclasses.
 CORRECT ANSWER IS D.
 
 158.
+GIVEN:
 
-FOR 163
+class Foo {
+    private void print() {
+        System.out.print("Bonjour le monde!");
+    }
+
+    public void foo() {
+        print();
+    }
+}
+
+class Bar extends Foo {
+    private void print() {
+        System.out.print("Hello Word!");
+    }
+
+    public void bar() {
+        print();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Bar bar = new Bar();
+        bar.foo();
+        bar.bar();
+    }
+}
+
+What is the output?
+A . Hello world!Bonjour le monde!
+B . Hello world!Hello world!
+C . Bonjour le monde!Hello world!
+D . Bonjour le monde!Bonjour le monde!
+
+CORRECT ANSWER IS C.
+
+159.
+GIVEN:
+public class Main {
+
+    static String prefix = "Global";
+
+    private String name = "namescope";
+
+    public static String getName() {
+        return new Main().name;
+    }
+
+    public static void main(String[] args) {
+        Main t = new Main();
+        System.out.println(Main.prefix+Main.name);
+        System.out.println(new Main().prefix+new Main().name);
+        System.out.println(Main.prefix+Main.getName());
+        System.out.println(prefix+Main.name);
+        System.out.println( prefix+name);
+    }
+}
+
+Which two op ons can you insert inside println method to produce Global:namescope? (Choose two.)
+A . Test.prefix+Test.name
+B . new Test().prefix+new Test().name
+C . Test.prefix+Test.getName()
+D . Test.getName+prefix
+E . prefix+Test.name
+F . prefix+name
+
+CORRECT ANSWER IS B, C.
+
+160.
+GIVEN:
+
+    public static void main(String[] args) {
+
+        int x = 0;
+        do {
+            x++;
+            if (x == 1) {
+                continue;
+            }
+            System.out.println( x);
+        } while (x < 1);
+    }
+
+What is the result?
+A . 01
+B . 0
+C . 1
+D . The program prints nothing.
+E . It prints 1 in the infinite loop.
+
+CORRECT ANSWER IS D.
+
+
+161.
+GIVEN:
+
+    public static void main(String[] args) {
+
+        int x = 0;
+        do {
+            x++;
+            if (x != 1) {
+                continue;
+            }
+            System.out.println(x);
+        } while (x < 10);
+    }
+
+What is the result?
+A . 01
+B . 0
+C . 1
+D . The program prints nothing.
+E . It prints 1 in the infinite loop.
+
+CORRECT ANSWER IS C.
+
+162.
+GIVEN:
+
+public static void main(String[] args) {
+        char letter = 'b';
+        int i = 0;
+        switch (letter) {
+            case 'a':
+                i++;
+                break;
+            case 'b':
+                i++;
+            case 'c' | 'd': // line 1
+                i++;
+            case 'e':
+                i++;
+                break;
+            case 'f':
+                i++;
+                break;
+            default:
+                System.out.println(letter);
+        }
+        System.out.println(i);
+    }
+
+What is the result?
+A . b1
+B . 2
+C . b2
+D . 1
+E . b3
+F . 3
+G . The compila on fails due to an error in line 1.
+
+CORRECT ANSWER IS F.
+
+163.
+GIVEN:
+class DNASynth {
+
+    int aCount;
+    int tCount;
+    int cCount;
+    int gCount;
+
+
+    void setACount(int cCount) {
+        cCount = cCount;
+    }
+
+    void setTCount() {
+        this.tCount = tCount;
+    }
+
+    int setCCount() {
+        return cCount;
+    }
+
+    int setGCount(int g) {
+        gCount = g;
+        return gCount;
+    }
+
+    void setAllCounts(int x) {
+        aCount = tCount = this.cCount = setGCount(x);
+    }
+}
+
+Which two methods modify field values? (Choose two.)
+A . setAllCounts
+B . setACount
+C . setGCount
+D . setCCount
+E . setTCount
+
+CORRECT ANSWER IS A, C.
+
+164.
+FOR 170.
