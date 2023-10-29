@@ -4625,5 +4625,182 @@ E . By default, modules can access each other as long as they run in the same fo
 CORRECT ANSWER IS A, D
 
 167. 
-FOR
-173.
+GIVEN:
+        int i = 10;
+        Supplier<Integer> foo = () -> i;
+        i++;
+        System.out.println(foo.get());
+
+Which is true?
+A . The code compiles but does not print any result.
+B . The code prints 25.
+C . The code does not compile.
+D . The code throws an excep on at run me.
+
+CORRECT ANSWER IS C.
+
+178.
+GIVEN:
+public class Main {
+    public static void main(String[] args) {
+        var today = LocalDate.now().with(TUESDAY).getDayOfWeek();
+        System.out.println(today);
+        switch (today) {
+            case SUNDAY:
+            case SATURDAY:
+                System.out.println("Weekend");
+                break;
+            case FRIDAY:
+            case MONDAY:
+                System.out.println("Working");
+            default:
+                System.out.println("Unknown");
+        }
+    }
+}
+
+What is the result?
+A . WorkingUnknown
+B . Unknown
+C . TuesdayUnknown
+D . The compila on fails.
+E . Tuesday
+F . Working
+
+CORRECT ANSWER IS B.
+
+179.
+GIVEN:
+
+public class Main {
+    public static void main(String[] args) {
+        String[][] arr = {{"Red", "White"}, {"Black"}, {"Blue", "Yellow", "Green", "Voilet"}};
+        for (int row = 0; row < arr.length; row++) {
+            int column = 0;
+            for (; column < arr[row].length; column++) {
+                System.out.println("[" + row + "," + column + "] = " + arr[row][column]);
+            }
+        }
+    }
+}
+
+What is the result?
+A . [0,0] = Red[0,1] = White[1,0] = Black[1,1] = Blue[2,0] = Yellow[2,1] = Green[3,0] = Violet
+B . [0,0] = Red[1,0] = Black[2,0] = Blue
+C . java.lang.ArrayIndexOutOfBoundsExcep on thrown
+D . [0,0] = Red[0,1] = White[1,0] = Black[2,0] = Blue[2,1] = Yellow[2,2] = Green[2,3] = Violet
+
+CORRECT ANSWER IS D.
+
+180.
+Which two commands are used to iden fy class and module dependencies? (Choose two.)
+A . jmod describe
+B . java Hello.java
+C . jdeps --list-deps
+D . jar --show-module-resolu on
+E . java --show-module-resolu on
+
+CORRECT ANSWER IS C, E.
+
+181.
+GIVEN:
+public class Main {
+    public static void main(String[] args) {
+        String s = "this is it";
+        int x = s.indexOf("is");
+        System.out.println(x);
+         s.substring(x + 3);
+        x = s.indexOf("is");
+        System.out.println(s + " " + x);
+    }
+}
+
+What is the result?
+A . is it 1
+B . An IndexOutOfBoundsExcep on is thrown at run me.
+C . is it 0
+D . this is it 2
+E . this is it 3
+
+CORRECT ANSWER IS D.
+
+182.
+GIVEN:
+class ConSuper {
+    protected ConSuper() {
+        this(2);
+        System.out.println("1");
+    }
+
+    public ConSuper(int a) {
+        System.out.println(a);
+    }
+}
+
+public class ConSub extends ConSuper {
+    ConSub() {
+        this(4);
+        System.out.println("3");
+    }
+
+    public ConSub(int i) {
+        System.out.println(i);
+    }
+
+    public static void main(String[] args) {
+        new ConSub(4);
+    }
+}
+
+
+What is the result?
+A . 2134
+B . 2143
+C . 214
+D . 234
+
+CORRECT ANSWER IS C.
+
+
+183.
+GIVEN:
+
+public class Price {
+    private final double value;
+
+    public Price(String value) {
+        this(Double.parseDouble(value));
+    }
+
+    public Price(double value) {
+        this.value = value;
+    }
+
+    public Price() {
+ //LINE 1
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public static void main(String[] args) {
+        Price p1 = new Price("1.99");
+        Price p2 = new Price("2.99");
+        Price p3 = new Price();
+
+        System.out.println(p1.getValue() + "," + p2.getValue() + "," + p3.getValue());
+    }
+}
+
+What is the result?
+A . The compila on fails.
+B . 1.99,2.99,0
+C . 1.99,2.99,0.0
+D . 1.99,2.99
+
+CORRECT ANSWER IS A.
+fail at line 1
+
+184.
+for 181.
