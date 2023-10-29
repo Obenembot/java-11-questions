@@ -4307,4 +4307,83 @@ D . List<String>
 CORRECT ANSWER IS C.
 
 153. 
-for 155.
+GIVEN:
+
+public class Main {
+    public static void main(String[] args) {
+        for (int i = 0; i < args.length; i++) {
+            System.out.println(i + "). " + args[i]);
+            switch (args[i]) {
+                case "One":
+                    continue;
+                case "Two":
+                    i--;
+                    continue;
+                default:
+                    break;
+            }
+        }
+    }
+}
+
+executed with this command:
+java Main one two three
+What is the result?
+A . 0). one
+B . 0). one1). two2). three
+C . The compila on fails.
+D . It creates an infinite loop prin ng:0). one1). two1). two...
+E . A java.lang.NullPointerExcep on is thrown.
+
+CORRECT ANSWER IS D.
+
+154.
+GIVEN:
+
+interface Question {}
+Which two statements are valid to be wri en in this interface? (Choose two.)
+A . public abstract void methodB();
+B . final void methodG(){System.out.println(''G'');}
+C . private abstract void methodC();
+D . public String methodD();
+E . public int x;
+F . final void methodE();
+G . public void methodF(){System.out.println(''F'');}
+
+CORRECT ANSWER IS A, D.
+
+155.
+Which is the correct order of possible statements in the structure of a Java class file?
+A . class, package, import
+B . package, import, class
+C . import, package, class
+D . package, class, import
+E . import, class, package
+
+CORRECT ANSWER IS B.
+
+156.
+Which describes an aspect of Java that contributes to high performance?
+A . Java priorizes garbage collecon.
+B . Java has a library of built-in funcons that can be used to enable pipeline burst execuon.
+C . Java monitors and opmizes code that is frequently executed.
+D . Java automacally parallelizes code execuon.
+
+CORRECT ANSWER IS C.
+
+157.
+GIVEN: 
+public void foo() throws FooExcepti on {}
+
+and omi ng the throws FooExcepti on clause results in a compila on error.
+Which statement is true about FooExcep on?
+A . FooExcep on is a subclass of Run meError.
+B . FooExcep on is unchecked.
+C . The body of foo can only throw FooExcep on.
+D . The body of foo can throw FooExcep on or one of its subclasses.
+
+CORRECT ANSWER IS D.
+
+158.
+
+FOR 163
