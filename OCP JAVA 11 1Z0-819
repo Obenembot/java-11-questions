@@ -4901,4 +4901,342 @@ E . HelloHello WorldHelloWorld
 CORRECT ANSWER IS D.
 
 189.
-FOR 190.
+GIVEN:
+
+   public static void main(String[] args) {
+        char[][] arrays = {{'a', 'd'}, {'b', 'e'}, {'c', 'f'}};
+        for (char[] xx : arrays) {
+            for (char c : xx) {
+                System.out.print(c);
+            }
+            System.out.println();
+        }
+    }
+
+What is the result?
+A . ab cd ef
+B . An ArrayIndexOutOfBoundsExcep on is thrown at run me.
+C . The compila on fails.
+D . abc def
+E . ad be cf
+
+CORRECT ANSWER IS E.
+
+190.
+GIVEN:
+class Foo {
+    public int x = 60; // LINE 1
+    protected Foo() { // LINE 2
+    }
+}
+class Bar extends Foo {
+    public int x = 80;// LINE 3
+}
+
+What is the result?
+A . 80
+B . The compilati on fails due to an error in line 1.
+C . 60
+D . The compila tion fails due to an error in line 3.
+E . The compila tion fails due to an error in line 2.
+
+CORRECT ANSWER IS C.
+
+191.
+Which describes a characteristic of setting up the Java development environment?
+A . Seng up the Java development environment requires that you also install the JRE.
+B . The Java development environment is set up for all operating systems by default.
+C . You set up the Java development environment for a specific operating system when you install the JDK.
+D . Seng up the Java development environment occurs when you install an IDE before the JDK.
+
+CORRECT ANSWER IS C.
+
+192.
+GIVEN:
+class Employee {
+    String office;
+}
+
+class HRApp {
+    var employee = new ArrayList<Employee>(); // line 1
+
+    public var display() { // line 2
+        var employee = new Employee();
+        var offices = new ArrayList<>();
+        offices.add("Chicago"); // line 3
+        offices.add("Bangalore"); // line 4
+        for (var office : offices) { // line 5
+            System.out.println("Employees location" + office);
+        }
+        return null;
+    }
+}
+
+Which two lines cause compila tion errors? (Choose two.)
+A . line 1
+B . line 2
+C . line 3
+D . line 4
+E . line 5
+
+CORRECT ANSWER IS A, B.
+// NOTE var can not be used as an instance variable or as a return type and as parameter types.
+
+193.
+GIVEN:
+    public static void main(String[] args) {
+        StringBuilder s = new StringBuilder("ABCD");
+       // LINE 1
+        System.out.println(s);
+    }
+
+REPLACE LINE 1 TO HAVE AQCD?
+A . s.replace(s.indexOf(''A''), s.indexOf(''C''), ''Q'');
+B . s.replace(s.indexOf(''B''), s.indexOf(''C''), ''Q'');
+C . s.replace(s.indexOf(''B''), s.indexOf(''B''), ''Q'');
+D . s.replace(s.indexOf(''A''), s.indexOf(''B''), ''Q'');
+
+CORRECT ANSWER IS B.
+
+194.
+Which two statements are true about Java modules? (Choose two.)
+A . Modular jars loaded from --module-path are automa c modules.
+B . Any named module can directly access all classes in an automa c module.
+C . Classes found in --classpath are part of an unnamed module.
+D . Modular jars loaded from --classpath are automa c modules.
+E . If a package is defined in both the named module and the unnamed module, then the package in the unnamed module is ignored.
+
+CORRECT ANSWER IS A, C.
+
+195.
+GIVEN:
+       var i = 10;
+        var j = 5;
+        i += (j * 5 + j) / i - 2;
+        i += (j * 5 + j) / i - 2;
+        System.out.println(i);
+
+What is the result?
+A . 5
+B . 3
+C . 23
+D . 25
+E . 11
+
+CORRECT ANSWER IS E.
+
+196.
+GIVEN:
+ StringBuilder sb = new StringBuilder(5);
+        sb.append("HOWDY");
+        sb.insert(0, 'P');// ' HOWDY'
+        sb.replace(3,5, "LL");// ' HOLLY'
+        sb.insert(6, "COW");//' HOLLYCOW'
+        sb.delete(2,7); //' HOLLYCOW'
+        System.out.println(sb);
+        System.out.println(sb.length());
+
+What is the result?
+A . 4
+B . 3
+C . An excep on is thrown at run me.
+D . 5
+
+CORRECT ANSWER IS A.
+
+197.
+Which set of commands is necessary to create and run a custom run me image from Java source files?
+A . java, jdeps
+B . javac, jlink
+C . jar, jlink
+D . javac, jar
+
+
+CORRECT ANSWER IS B.
+
+198.
+GIVEN:
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            doA();
+            doB();
+        } catch (IOException e) {
+            System.out.println("c");
+            return;
+        } finally {
+            System.out.println("d");
+        }
+        System.out.println("f");
+    }
+
+    private static void doA() {
+        System.out.println("a");
+        if (false) {
+            throw new IndexOutOfBoundsException();
+        }
+    }
+
+    private static void doB() throws FileNotFoundException {
+        System.out.println("b");
+        if (true) {
+            throw new FileNotFoundException();
+        }
+    }
+}
+
+What is the result?
+A . The compila on fails.
+B . abdf
+C . abd
+D . adf
+E . abcd
+
+CORRECT ANSWER IS E.
+
+199.
+GIVEN:
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            doA();
+            doB();
+        } catch (IOException e) {
+            System.out.println("c");
+        } finally {
+            System.out.println("d");
+        }
+        System.out.println("f");
+    }
+
+    private static void doA() {
+        System.out.println("a");
+        if (false) {
+            throw new IndexOutOfBoundsException();
+        }
+    }
+
+    private static void doB() throws FileNotFoundException {
+        System.out.println("b");
+        if (true) {
+            throw new FileNotFoundException();
+        }
+    }
+}
+
+What is the result?
+A . The compila on fails.
+B . abcdf
+C . abd
+D . adf
+E . abcd
+
+CORRECT ANSWER IS B.
+
+200.
+GIVEN:
+ public static void main(String[] args) {
+
+        int[] secA = {2, 4, 6, 8, 10};
+        int[] secB = {2, 4, 8, 6, 10};
+        int res1 = Arrays.mismatch(secA, secB);
+        int res2 = Arrays.compare(secA, secB);
+        System.out.println(res1 + " : " + res2);
+    }
+What is the result?
+A . -1 : 2
+B . 2 : -1
+C . 2 : 3
+D . 3 : 0
+
+CORRECT ANSWER IS B.
+
+201.
+Which two statements are true about the modular JDK? (Choose two.)
+A . The founda onal APIs of the Java SE Pla orm are found in the java.base module.
+B . An applica on must be structured as modules in order to run on the modular JDK.
+C . It is possible but undesirable to configure modules' exports from the command line.
+D . APIs are deprecated more aggressively because the JDK has been modularized.
+
+CORRECT ANSWER IS A, D.
+
+202.
+GIVEN:
+
+public class Main {
+    private int num = 1;
+    private int div = 0;
+
+    public void divide() {
+        try {
+            num = num / div;
+            System.out.println("Exception");
+        } catch (ArithmeticException ae) {
+            num = 100;
+        } catch (Exception e) {
+            num = 200;
+        } finally {
+            num = 300;
+        }
+        System.out.println(num);
+    }
+
+    public static void main(String[] args) {
+        Main test = new Main();
+        test.divide();
+    }
+}
+
+What is the output?
+A . 300
+B . Excepti on
+C . 200
+D . 100
+
+CORRECT ANSWER IS A.
+
+203.
+Which two modules include APIs in the Java SE Specificaon? (Choose two.)
+A . java.logging
+B . java.desktop
+C . javafx
+D . jdk.hpserver
+E . jdk.jartool
+
+CORRECT ANSWER IS A, B.
+
+204.
+GIVEN:
+public interface App {
+    public  void checkValue(Object value) throws IllegalArgumentException;
+
+    public boolean isValueANumber(Object val) {
+        if (val instanceof Number) {
+            return true;
+        } else {
+            try {
+                Double.parseDouble(val.toString());
+                return true;
+            } catch (NumberFormatException ex) {
+                return false;
+            }
+        }
+    }
+
+
+}
+Which two changes need to be made to make this class compile? (Choose two.)
+A . Change Line 1 to an abstract class:public abstract class API {
+B . Change Line 2 access modifier to protected:protected void checkValue(Object value)throws IllegalArgumentExcep on;
+C . Change Line 1 to a class:public class API {
+D . Change Line 1 to extend java.lang.AutoCloseable:public interface API extends AutoCloseable {
+E . Change Line 2 to an abstract method:public abstract void checkValue(Object value)throws IllegalArgumentExcep on;
+
+CORRECT ANSWER IS A, E.
+
+
+
+
+
