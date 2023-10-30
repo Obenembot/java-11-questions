@@ -4803,4 +4803,82 @@ CORRECT ANSWER IS A.
 fail at line 1
 
 184.
-for 181.
+GIVEN:
+
+    public static void main(String[] args) {
+
+        String [] fruitNames = {"apple", "orange","grape","lemon","apricot", "waterlemon"};
+        var fruits = new ArrayList<>(Arrays.asList(fruitNames));
+        fruits.sort((var a, var b) -> a.compareTo(b));
+        fruits.forEach(System.out::println);
+    }
+
+What is the result?
+A . watermelonorangelemongrapeapricotapple
+B . nothing
+C . appleapricotgrapelemonorangewatermelon
+D . appleorangegrapelemonapricotwatermelon
+
+CORRECT ANSWER IS C.
+
+
+185.
+GIVEN:
+
+    public static void main(String[] args) {
+
+        String [] fruitNames = {"apple", "orange","grape","lemon","apricot", "waterlemon"};
+        var fruits = new ArrayList<>(Arrays.asList(fruitNames));
+        fruits.sort((var a, var b) -> -a.compareTo(b));
+        fruits.forEach(System.out::println);
+    }
+
+What is the result?
+A . watermelonorangelemongrapeapricotapple
+B . nothing
+C . appleapricotgrapelemonorangewatermelon
+D . appleorangegrapelemonapricotwatermelon
+
+CORRECT ANSWER IS A.
+
+
+186.
+GIVEN:
+
+    public static void main(String[] args) {
+
+        String [] fruitNames = {"apple", "orange","grape","lemon","apricot", "waterlemon"};
+        var fruits = new ArrayList<>(Arrays.asList(fruitNames));
+        fruits.sort((var a, var b) -> b.compareTo(a));
+        fruits.forEach(System.out::println);
+    }
+
+What is the result?
+A . watermelonorangelemongrapeapricotapple
+B . nothing
+C . appleapricotgrapelemonorangewatermelon
+D . appleorangegrapelemonapricotwatermelon
+
+CORRECT ANSWER IS A.
+
+187.
+GIVEN:
+
+    public static void main(String[] args) {
+        String s1 = new String("ORACLE");
+        String s2 = "ORACLE";
+        String s3 = s1.intern();
+
+        System.out.println(s1 == s2);
+        System.out.println(s2 == s3);
+        System.out.println(s1 == s3);
+        
+    }
+
+What is the result?
+A . false true true
+B . true false false
+C . false false true
+D . false true false
+
+CORRECT ANSWER IS D.
