@@ -5237,6 +5237,92 @@ E . Change Line 2 to an abstract method:public abstract void checkValue(Object v
 CORRECT ANSWER IS A, E.
 
 
+205.
+    List<String> list1= new ArrayList<>();
+        list1.add("A");
+        list1.add("B");
+        List<String> list2= Collections.unmodifiableList(list1);
+        list1.add("C");
+        list1.add("D");
+        System.out.println(list1);
+        System.out.println(list2);
 
+A. [A, B, C]
+followed by an exception thrown on line 11.
+B. [A, B, C]
+[A, B]
+C. [A, B, C]
+[A, B, C]
+D. On line 9, an exception is thrown at run time.
 
+CORRECT ANSWER IS C
+206.
+
+Which module-info.java is correct for a service provider for a print service defined in the PrintServiceAPI module?
+
+A. module PrintServiceProvider {
+requires PrintServiceAPI;
+exports org.printservice.spi;
+}
+B. module PrintServiceProvider {
+requires PrintServiceAPI;
+provides org.printservice.spi.Print with
+com.provider.PrintService;
+}
+C. module PrintServiceProvider {
+requires PrintServiceAPI;
+uses com.provider.PrintService;
+}
+D. module PrintServiceProvider {
+requires PrintServiceAPI;
+exports org.printservice.spi.Print with
+com.provider.PrintService;
+}
+
+CORRECT ANSWER IS B.
+
+207.
+ public static void main(String[] args) {
+        var symbols = List.of("USD", "GBP", "EUR", "CNY");
+        var exchangeRate = List.of(1.0, 1.3255, 1.1569, 0.1558054);
+        var mapl =
+                IntStream.range(0, Math.min(symbols.size(), exchangeRate.size()))
+                        .boxed()
+                        .collect(Collectors.toMap(i -> symbols.get(i), i ->
+                                1.0 / exchangeRate.get(i)));
+
+        var map2 = mapl.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+        map2.forEach((var k, var v) -> System.out.printf(" %s -> %.2f\n", k, v));
+    }
+
+What is the result?
+
+A. EUR -> 0.84 -
+GBP -> 0.75 -
+USD -> 1.00 -
+CNY -> 6.42
+B. The compilation fails.
+C. CNY -> 6.42 -
+EUR -> 0.84 -
+GBP -> 0.75 -
+USD -> 1.00
+D. USD -> 1.00 -
+GBP -> 0.75 -
+EUR -> 0.84 -
+CNY -> 6.42
+
+CORRECT ANSWER IS C.
+
+208.
+Why would you choose to use a peek operation instead of a forEach operation on a Stream?
+
+A. to process the current item and return void
+B. to remove an item from the end of the stream
+C. to process the current item and return a stream
+D. to remove an item from the beginning of the stream
+
+CORRECT ANSWER IS C.
 
