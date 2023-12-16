@@ -13,3 +13,75 @@ F. Double e = Double.valueOf(list.get(0));
 
 Correct Answer is A. 
 B works becuase it is a primity type and double is bigger than integer
+
+
+210.
+Given:
+@Repeatable(Meals.class)
+@Target(ElementType.TYPE)
+@interface Meal {
+    String starter() default "";
+
+    String mainCourse();
+
+    String dessert() default "";
+}
+
+@Target(ElementType.TYPE)
+@interface Meals {
+    Meal[] value();
+}
+
+Which two are valid usages of the annotation? (Choose two.)
+
+A. @Meal(mainCourse=”pizza”)
+@Meal(dessert=”pudding”)
+public class Main {
+}
+B. @Meal(mainCourse=null)
+public class Main {
+}
+C. @Meal(starter=”snack”, dessert=”ice cream”)
+public class Main {
+}
+D. @Meal(mainCourse=”pizza”)
+@Meal(mainCourse=”salad”)
+public class Main {
+}
+E. @Meal(mainCourse=”pizza”, starter=”snack”, dessert=”pudding”) public class Main {
+}
+
+
+The correct Answer is D and E.
+
+211.
+Given:
+enum Season{
+    WINTER('w'),
+    SRING('s'),
+    SUMMER('h'),
+    FALL('f');
+    char c;
+    private Season(char c){
+        this.c = c;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Season[] season = Season.values();
+        // line 1
+        Arrays.stream(season).forEach(s -> System.out.println(s));
+    }
+}
+
+Which three code fragments, at line n1, prints SPRING? (Choose three.)
+
+A. System.out.println(Season.valueOf(“SPRING”).ordinal());
+B. System.out.println(Season.values(1));
+C. System.out.println(Season.SPRING);
+D. System.out.println(Season.valueOf(“SPRING”));
+E. System.out.println(Season.valueOf(‘s’));
+F. System.out.println(sA[0]);
+G. System.out.println(sA[1]);
+
+The correct Answer is C, D, G.
