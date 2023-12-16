@@ -1,0 +1,15 @@
+
+209.
+Given the code fragment:
+List<Integer> list = List.of(11,12,13,12,13);
+Which statement causes a compile time error?
+
+A. Double d = list.get(0);
+B. double f = list.get(0);
+C. Integer a = Integer.valueOf(list.get(0));
+D. Integer b = list.get(0);
+E. int c = list.get(0);
+F. Double e = Double.valueOf(list.get(0));
+
+Correct Answer is A. 
+B works becuase it is a primity type and double is bigger than integer
