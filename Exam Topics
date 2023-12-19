@@ -1,1 +1,49 @@
+10.
+Given:
+ public static void main(String[] args) {
+        List<String> list1= new ArrayList<>();
+        list1.add("A");
+        list1.add("B");
+        List<String> list2= Collections.unmodifiableList(list1);
+        list1.add("C");
+        list1.add("D");
+        System.out.println(list1);
+        System.out.println(list2);
+    }
+
+What is the result?
+
+A. [A, B, C]
+followed by an exception thrown on line 11.
+B. [A, B, C]
+[A, B]
+C. [A, B, C]
+[A, B, C]
+D. On line 9, an exception is thrown at run time.
+
+Correct Answer is C.
+
+11.
+Which module-info.java is correct for a service provider for a print service defined in the PrintServiceAPI module?
+
+A. module PrintServiceProvider {
+requires PrintServiceAPI;
+exports org.printservice.spi;
+}
+B. module PrintServiceProvider {
+requires PrintServiceAPI;
+provides org.printservice.spi.Print with
+com.provider.PrintService;
+}
+C. module PrintServiceProvider {
+requires PrintServiceAPI;
+uses com.provider.PrintService;
+}
+D. module PrintServiceProvider {
+requires PrintServiceAPI;
+exports org.printservice.spi.Print with
+com.provider.PrintService;
+}
+
+Correct Answer is B.
 
